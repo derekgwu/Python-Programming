@@ -3,10 +3,10 @@
 ## Introduction
 Every time we interact with a computer, we are interacting with someone's code (usually). It might not seem like it, but we take many things for granted. From banking to YouTube, everything has been automated to be as efficient as possible. All of our everyday convenience in technology has likely been the result of countless software designs today
 
-- THINK: What's a piece of technology that you use everyday that likely has code in it?
+- THINK: What's a piece of technology that you use every day that likely has code in it?
 
 ## Design, Compile, Execute!
-As a programmer, we are usually tasked with a problem and have to develop a solution to it. At a high level, we can break down our problems in software development into three stages:
+As a programmer, we are usually tasked with a problem and have to develop a solution to it. At a high-level, we can break down our problems in software development into three stages:
 
 ### Design Time
 For example, let's say we work for NASA and we want to (hypothetically) travel to Mars. We've identified our problem, and the answer might seem obvious (rocket ship). But design time is not just coming up with a solution. It's coming up with implementations (aka HOW are we building the rocket ship). Design time is breaking down our big problems into smaller (and more manageable) problems. This could be answering the mini-questions
@@ -14,12 +14,12 @@ For example, let's say we work for NASA and we want to (hypothetically) travel t
 - How much oxygen do we need?
 - How much food do we need?
 
-When it comes to software development, you'll want to spend 70-90% of the time designing. While it might seem overkill, the more time you spend planning, the less time you'll have to spend coding and fixing your code. Because every time your code breaks, you'll be back at design time.
+When it comes to software development, you'll want to spend 70-90% of the time designing. While it might seem like overkill, the more time you spend planning, the less time you'll have to spend coding and fixing your code. Because every time your code breaks, you'll be back at design time.
 
 ### Compile Time
-This is basically the "coding time". But what does compiling mean? To understand compiling, let's pretend instead of talking to a computer, you are talking to the newest foreign exchange student. His English is not great, so it's difficult to get through to him. But your best friend speaks his language, so he can communicate with you and translate your English. That's what your programming language does. It's a way for the computer to understand our human ideas. When you compile your code, it's essentially translating it into binary, or a language your computer is fluent in.
+This is basically the "coding time". But what does compiling mean? To understand compiling, let's pretend instead of talking to a computer, you are talking to the newest foreign exchange student. His English is not great, so it's difficult to get through to him. But your best friend speaks his language, so he's able to communicate with you and translate your English. That's what your programming language does. It's a way for the computer to understand our human ideas. When you compile your code, it's essentially translating it into binary, or a language your computer is fluent in.
 
-Compile time should be easy if you did a good job in design time. Otherwise you'll be doing design time and compile time at the same time, and you'll work extra slow. This should only be about 25% of the time spent in the development process.
+Compile time should be easy if you did a good job in design time. Otherwise, you'll be doing design time and compile time at the same time, and you'll work extra slowly. This should only be about 25% of the time spent in the development process.
 
 ### Execution Time
 Finally, after you have designed your implementations and code, you are ready to run your code. Now, two things can happen here:
@@ -31,7 +31,7 @@ If your code breaks, there are two different types of errors you'll get:
 
 1. Syntax and compilation errors
 
-This usually means you misspelled a variable name or made a typo somewhere. These are usually easy to fix as Python IDEs will tell you where the error is. Syntax is a fancy word for how we spelled things.
+This usually means you misspelled a variable name or made a typo somewhere. These are usually easy to fix as Python IDEs will tell you where the error is. Syntax is a fancy word for how we spell things.
 
 2. Implementation errors
 
@@ -71,7 +71,7 @@ These are test cases. In short, we give our code sample inputs and compare the c
 
 ### A small detour: edge cases
 
-It's important to know that we cannot make "perfect" code. But thorough testing code strengthens it and prevents any user from breaking it. For example, take this sample code:
+It's important to know that we cannot make "perfect" code. But thorough testing of code strengthens it and prevents the chance of any user breaking it. For example, take this sample code:
 
 ```
 def findMax(arr):
@@ -91,6 +91,28 @@ Luckily, I'll write your test cases so you should not have to worry about thinki
 You won't pass test cases every single time. In fact, if that was the case, there's likely a problem with the test cases. So what happens when we fail our test cases?
 
 ### Debugging - Revisiting Steps 1-3 again
-When we fail our tests, we take a step back and analyze what failed. Did we output the right message? Did we output anything? If we fail something along these lines, our logic is off and we must return to design time. If we made a syntax error, we return to compile time. 
+When we fail our tests, we take a step back and analyze what failed. Did we output the right message? Did we output anything? If we fail something along these lines, our logic is off and we must return to design time. If we make a syntax error, we return to compile time. 
 
 That's why it's so important to spend as much time as possible at design time so we never have to return to it. However, things happen (and they will!), so be prepared. 
+
+### How to Read Test Cases
+Fortunately for you, I will make all your test cases, so you know what I am looking for. However, the test cases will always be attached to your assignment, and you can view each input and its expected output. For future projects, I will use my own testing method that looks like this:
+```
+def test(assertion, expected, test_num):
+    if(assertion == expected):
+        print("Test " + str(test_num) + ": SUCCESS.")
+    else:
+        print("Test " + str(test_num) + ": FAILED. Expected " + str(expected) + " but got " + str(assertion))
+
+
+test(odd_or_even(10), False, 1.1)
+```
+
+You only need to focus on **test(odd_or_even(10), False, 1.1)**. But how do you read this? 
+
+This enters a brief realm of classes, methods, and the idea of object-oriented programming. This is not exactly important for you to know now, but we will define what you need to know to understand test cases:
+
+- **test**(...) - This calls my testing method and tests your code by giving it a sample input. It essentially says: "Hey, test this function with these numbers"
+- **odd_or_even(10)** - This is the function that the tester runs. It won't always say **odd_or_even** but it will be the function that you wrote as a programmer. The **10** is the sample input value I am giving your function. In this example, I am giving your odd_or_even function the number 10 and asking it to output whether 10 is odd or even. This input value will always be in the parentheses next to your operation.
+- **False** - this is the EXPECTED output. For example, we expect your code to output false as we know 10 is even.
+- **1.1** -This is the test case number.
