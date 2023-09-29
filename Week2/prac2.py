@@ -5,6 +5,7 @@
 """Given a number, the function checkpoint() checks if the number is greater than 1, 3, 5, 7, and 9.
 If the number is greater than one number, it will add 1 to the checkpoint counter. At the end, it returns
 the number of checkpoints"""
+#num: 8
 def checkpoint(num):
     checkpoints_passed = 0;
     if(num > 1):
@@ -47,11 +48,11 @@ def is_negative(num):
 """Given a number, the function div_3_and_2() checks if the number can be divided by 2 AND 3. Returns True if it does, or
 false if it not divisible by 3 or 2"""
 def div_3_and_2(num):
-    if(num % 3 == 0):
-        0
-    if(num % 2 == 0):
-        0
-    return True
+    if(num % 3 == 0 & num % 2 == 0):
+        return True
+    return False
+
+
 
 
 
