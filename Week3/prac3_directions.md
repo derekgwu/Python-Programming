@@ -62,4 +62,12 @@ answer = input("Enter answer: ")
 
 This takes a users input and store it in the variable answer. You can also have a message displayed with the input. 
 
-Additionally if-else statements are a great way to determine whether an answer is right or wrong.
+Additionally if-else statements are a great way to determine whether an answer is right or wrong. In short, you can do
+```
+if(answer == correct_answer):
+    print("True")
+```
+
+For if-statement remember that == means equals and != means does not equals
+
+You can create the test however you want. I encourage you to add your own spin to this assignment and have fun with it
