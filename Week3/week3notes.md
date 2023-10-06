@@ -35,12 +35,12 @@ x = 7.89
  are all valid forms of code in Python.
 
 ### Variables in Code
-Now that you understand we can choose values to assign to our variables, what if we want to change our variable values? For example if we have 
+Now that you understand we can choose values to assign to our variables, what if we want to change our variable values? For example, if we have 
 ```
 x = 6
 ```
 
-What if we need *x* to become 5? To understand what is going on, let's imagine we have a box. 
+What if we need *x* to become 5? Let's imagine we have a box to understand what is going on. 
 
 The box has a label **x** and inside that box is the number 6. We want to open up that box, take out the 6, and replace it with the number 5 (while still keeping the label **x** on it).
 
@@ -57,18 +57,18 @@ x = 5
 y = 8
 ```
 
-We have TWO boxes now. But what if we wanted to put the value in **y** into x? Essentially, we want to put 8 into x. Granted we could do the same way we did in the previous example, but what if we did not know y equals 8? What if y was also changing through out the program?
+We have TWO boxes now. But what if we wanted to put the value in **y** into x? Essentially, we want to put 8 into x. Granted we could do the same way we did in the previous example, but what if we did not know y equals 8? What if y was also changing throughout the program?
 
 To make x have the same value as y, we say
 ```
 x = y
 ```
 
-While this looks like "x equals y" we are doing more than that. We are saying "x is assigned the value in y". The best way to understand this is reading the code from right to left (i.e the value on the right is assigned to the left) This leads us into a small detour of topic.
+While this looks like "x equals y" we are doing more than that. We are saying "x is assigned the value in y". The best way to understand this is by reading the code from right to left (i.e. the value on the right is assigned to the left) This leads us into a slight detour of the topic.
 
 ### State. No not the state you live in
 
-When we run a program, a computer only know the values of variable at that current line. For example, take this line of code:
+When we run a program, a computer only knows the values of variables at that current line. For example, take this line of code:
 ```
 x = 5 \\line 1
 x = 4 \\line 2
@@ -76,15 +76,15 @@ x = 4 \\line 2
 
 Python reads line-by-line, so at line 1, the computer stores in its memory x = 4. However, when it reaches line 2, x becomes 5 and the computer has no memory that x was 4. 
 
-The values our variables have at a certain time of the programming runtime is called state. For example, the state of the program is different at the start than at the end. 
+The values our variables have at a certain time of the programming runtime are called state. For example, the state of the program is different at the start than at the end. 
 
 ### Back to Variables
 
 Now that we have learned that variables can change values, what if we want to change a variable with a number to a variable with a character?
 
-In most programming languages like Java and C, you declare a variable beforehand, in other words you specify whether your variable *x* will hold integers, characters, or strings. So if you declared a variable as an integer type, that variable cannot hold characters, strings, etc.
+In most programming languages like Java and C, you declare a variable beforehand, in other words, you specify whether your variable *x* will hold integers, characters, or strings. So if you declare a variable as an integer type, that variable cannot hold characters, strings, etc.
 
-However, that does not hold for Python because we do not declare our variables type. So the following code is perfectly fine:
+However, that does not hold for Python because we do not declare our variable type. So the following code is perfectly fine:
 ```
 x = 9
 x = "Hello World"
@@ -138,10 +138,10 @@ Now what about else and elif statements?
 - *elif(...)* - These are paired with if statements. It allows you to essentially check a second conditional after the first if-statement.
 - *else:* Additionally paired with if-statements. However, you'll notice else-statement do not have a conditional added onto them. Code written in else-statements will only run if ALL of the previous if and elif statements were false
 
-You should note that elif and else statement are optional. It all depends on the code you are writing whether you need them or not. 
+You should note that elif and else statements are optional. It all depends on the code you are writing whether you need them or not. 
 
 ### Nested Conditionals
-We can put if-statements within each other if we really wanted to.
+We can put if-statements within each other if we really want to.
 
 Consider this code: 
 ```
@@ -187,7 +187,7 @@ else:
     print("z is the smallest)
 ```
 
-Much cleaner. That is the usage of the "and" operator (which can also be ```and```). Alternatively, there is the "or" operator denoted by ```or```
+Much cleaner. That is the usage of the "and" operator (which can also be ``` and```). Alternatively, there is the "or" operator denoted by ``` or```
 
 ```
 x = 1
@@ -205,9 +205,9 @@ We went over a lot this week, and the assignment this week is pretty long. Thus,
 1. Variables are names that take on values
 2. Variable values can change throughout the program
 3. Variable values can also change types thanks to casting
-4. The state of a program is what variables values are at a certain time of the program
+4. The state of a program is what variables' values are at a certain time in the program
 5. Boolean logic is useful for decision-making in programming.
 6. If-statements have a conditional and a block of code attached to them
 7. If-statements can be followed by elif and else statements, but it is not required
 8. Although not advised, we can nest our conditionals and have conditionals within conditionals
-9. We can combine conditionals togethers to write cleaner code
+9. We can combine conditionals together to write cleaner code
