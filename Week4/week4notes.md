@@ -120,6 +120,3 @@ while x < 10:
 
 Note, that the variable x is never decreasing in the loop. Thus `x` will never be less than 10, and we will stay in the while loop forever. This is known as an *infinite loop* and our program runs forever. This is extremely bad and usually requires the user or developer to manually kill the program or terminal.
 
-## Arrays 
-
-The peanut butter to jelly 
