@@ -1,26 +1,10 @@
 def encrypt(message):
-    new_message = message[1 : len(message)] + message[0]
-    ret = ""
-    for i in range(0,len(new_message), 1):
-        num = ord(new_message[i])
-        num += 3
-        char = chr(num)
-        ret = ret + char
-    return ret
-    "YOUR CODE HERE"
+    "CODE HERE"
     0
 
-
 def decrypt(message):
-    new_message = message[len(message) - 1] + message[0: len(message) - 1]
-    ret = ""
-    for i in range(0, len(new_message), 1):
-        num = ord(new_message[i])
-        num -= 3
-        char = chr(num)
-        ret = ret + char
-    
-    return ret
+    "CODE HERE"
+    0
 
 """UNIT TESTS"""
 
