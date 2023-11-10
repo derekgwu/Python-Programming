@@ -78,4 +78,3 @@ These are the same. Here's the basic outline for separating the string by the `\
 In short, this milestone does not have a lot of code. But it can be harder to conceptualize. 
 
 ## Unit Testing
-In this milestone, there is only one test. It simultaneously asserts that the dataset was parsed correctly and it is structed properly in the array.
