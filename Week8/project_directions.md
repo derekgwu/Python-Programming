@@ -78,3 +78,23 @@ These are the same. Here's the basic outline for separating the string by the `\
 In short, this milestone does not have a lot of code. But it can be harder to conceptualize. 
 
 ## Unit Testing
+There is only one test to pass in this unit test. The test checks the first entry in `data` and checks:
+- Each entry has the proper format like:
+```
+Minecraft |300,000,000| Minecraft Multi-platform November 18, 2011
+```
+- Each entry has all of it's tabs removed
+
+## Milestone 1: Simple Data Analysis
+In this milestone, you'll implement 3 simple data functions. 
+1. Year Parse
+2. Keyword Search
+3. Most Popular Franchise
+
+### Year Parse
+When this function is called, it will get the years of each game released date and store them in a set. Note that the dates will be stored in set. A set is an array but every entry is unique, that is no entry will appear twice in the array. Once the set is completed, the set will be printed.
+
+#### Hints for Year Parse
+Note that for every entry, the year is always the last four characters in the string. Thus, you can always find the year by taking a substring of the last for characters. 
+
+In order to maintain a set, you should search your entire set before inserting a new entry. I have provided you with a helper function called `search` which takes your set and entry-to-look-for as arguments. It returns `True` if the entry is found, and `False` otherwise. You should only insert entries into your set if the `search()` returns false.
