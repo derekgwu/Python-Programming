@@ -98,3 +98,43 @@ When this function is called, it will get the years of each game released date a
 Note that for every entry, the year is always the last four characters in the string. Thus, you can always find the year by taking a substring of the last for characters. 
 
 In order to maintain a set, you should search your entire set before inserting a new entry. I have provided you with a helper function called `search` which takes your set and entry-to-look-for as arguments. It returns `True` if the entry is found, and `False` otherwise. You should only insert entries into your set if the `search()` returns false.
+
+### Keyword Search
+When this function is called, it will search the entries of data and return the first entry that contain the associated keyword. For example, if the keyword was Wii, you would return
+```python
+Wii Sports	|82,900,000|	Wii	Wii	November 19, 2006
+```
+
+#### Hints for Keyword Search
+This should feel relatively straightforward, and it is nothing more than a search. To perform a search, you should use a loop and iterate through your data set. 
+
+To check if a keyword is in a set, you can use the `in` keyword for strings. It is used like
+
+```python
+substring = "hello"
+string = "hello world"
+if substring in string:
+    print("True")
+```
+
+### Most Popular Franchise
+When this function is called, it determines the most popular franchise in the dataset (i.e Mario, Halo, Call of Duty). To do this, I have given you an array in the function labelled `tracker`. It is a 2-D array that associates a franchise with a value. If the franchise title is found in the entry, increment the count.
+
+#### Hints for Most Popular Franchise
+This is extremely similar to `keyword_search()`. I would suggest finishing `keyword_search()` to get an idea how to do most popular franchise. While not neccesaary, you can use your `keyword_search()` function to complete `most_popular_franchise()`.
+
+## Milestone 2: Advanced Data Analysis
+In this milestone, we will go step further and implement harder functions. 
+
+### Sort By Year
+When viewing large lists, it would be nice to view the list in a different order. In this function you'll sort the entries by the year they came out, instead of the number copies sold. 
+
+#### Hints for Sorting By Year
+We will be using Python's built-in function `arr.sort()` to sort our array. This sorts an array by default alphabetically or numerically least to greatest.
+
+We can specify it to sort by something else, by passing the `(key=____)` argument. 
+
+### Create Your Own 
+Now that you have implemented a couple functions on your own, you will create your own function that does its own unique action. This can be whatever you want, as long as its related to data analysis. 
+
+Since this is your own function, you will also be responsible for making sure it works properly. Thus, you are responsible for testing your own code.
