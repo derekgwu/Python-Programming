@@ -69,8 +69,6 @@ def your_own_func():
 """```````````````````````````````HELPER FUNCTIONS```````````````````````````````"""
 """DO NOT EDIT ANYTHING HERE"""
 #helper functions! you can use these whenever you need to
-
-
 def search(tracker, entry):
     for x in tracker:
         if entry == x:
