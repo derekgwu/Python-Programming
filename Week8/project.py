@@ -5,15 +5,47 @@ import copy
 
 """```Milestone 0```"""
 def data_clean(data, src):
-    """YOUR CODE HERE"""
+    #replace the tabs
+    src = src.replace("\t", " ")
+
+    #parsing the string
+    concantenated_str = ""
+    for char in range(0, len(src), 1):
+        if src[char] == '\n':
+            data.append(concantenated_str)
+            concantenated_str = ""
+        else:
+            concantenated_str += src[char]
+
+        #if char is the new line character
+            #add to our data
+            #concantenated_str = ""
+        #else
+            #concantenate the string
+    return data
 
 
 """```Milestone 1```"""
 def year_parse(data):
+    tracker = []
+    for entry in data:
+        #year of the entry
+        year = get_year(entry)
+        if search(tracker,year) == False:
+            tracker.append(year)
+    
+    tracker.sort()
+    return tracker
+
     """YOUR CODE HERE"""
 
 def keyword_search(data, keyword):
     """YOUR CODE HERE"""
+    for entry in data:
+        if keyword in entry:
+            return entry
+        
+    return ""
 
 def most_popular_franchise(data):
     tracker = [
@@ -24,6 +56,14 @@ def most_popular_franchise(data):
         ["The Witcher", 0],
         ["Zelda", 0],
     ]
+
+    for entry in data:
+        for i in range(0, len(tracker), 1):
+            if tracker[i][0] in entry:
+                tracker[i][1] += 1
+    
+    return tracker
+
 
     """YOUR CODE HERE"""
 
@@ -132,12 +172,15 @@ franchise_tracker = most_popular_franchise(data)
 
 sort_by_year(data)
 
+#your own func
+print(your_own_func())
+
 
 
 """```````````````````````````````UNIT TESTING CALLS```````````````````````````````"""
-"""DO NOT EDIT ANYTHING HERE"""
+
 run_m0 = True
-run_m1 = False
+run_m1 = True
 run_m2 = False
 if run_m0 == True:
     m0_tests(data)
