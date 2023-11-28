@@ -7,3 +7,7 @@ Current Inventory:
 - Week 3 - Variables and Boolean Logic
 - Week 4 - The Introduction to Loops
 - Week 5 - Expanding on Arrays
+- Week 6 - Strings, Character, ASCII
+- Week 7 - Methods
+- Week 8 - Project 1
+- Week 9 - Classes
