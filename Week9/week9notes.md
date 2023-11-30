@@ -41,3 +41,20 @@ That's a lot to take in. Let's break it down.
 
 - `class Student` represents the class itself as a whole. Anything indented within it is in the class
 - `def __init__` is known as a *constructor*. When we want to make a new instance of the class, we essentially call the constructor method. It will always take the argument `self`, but you do not need to pass it in when calling it.
+- `self` - This creates and intializes the variables associated with this class. 
+- `student1 = Student()` creates an instance of the student with the following arguments as variables
+
+
+## Methods within Classes
+In the example you just saw, we can have methods in our classes. The __init__ method is a must have in any of your classes, but other methods are up to you. Let's explore some common methods you may have in your classes.
+
+### Getters
+When we create the variables within our classes. We would like some way to access that variable. In the student example, supposed we want to access the student's name. We can write a method like
+```python
+def getStudentName(this):
+    return this.name
+
+student1Name = getStudentName()
+```
+
+Note that the word `this` is an argument in the class method, but it is not passed in when called upon. The `this` keyword is a filler word that grants access to the class.
