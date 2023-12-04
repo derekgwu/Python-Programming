@@ -25,19 +25,17 @@ In this first milestones, you'll use your knowledge of classes and create mini N
 
 When a new `User` is created, they will pass on an email, password, and username. At the start, the preferred language will be set to English and the list of games will be empty. (Take this as a hint for making your constructor)
 
-In order to change the preferred language, your class of `User`s will need a setter that takes a String and sets that string.
-
-You should also have getters for all the variables in the `User` class. Be sure that your constructor, setters, and getters all match the naming schmeme in my unit tests. 
+In order to change the preferred language, your class of `User`s will need a setter that takes a String and sets that string. You should also have getters for all the variables in the `User` class. 
 
 
 
 
-## Milestone 1 - Creating Games
+## Milestone 1 - Creating Games and Creating the ESHOP
 For this milestone, we will create the `QuizGame` class. Each instance of `QuizGame` will have two methods: `__init__` and `play`. 
 
-In `__init__`, you should take a String `name` as an argument and construct it in the method.
+In `__init__`, you should take a String `name` as an argument and construct it in the method. For the `play` method, you should use your quiz from week 2. Thus, when the `play` method is called, your quiz will play. (This is essential for making the mini-switch work).
 
-For the `play` method, you should use your quiz from week 2. Thus, when the `play` method is called, your quiz will play. (This is essential for making the mini-switch work).
+In addition, you will also build an e-shop. For this milestone, after you create the QuizGame class, create an instance of it and add it to the e-shop
 
 ## Milestone 2 - Running the Switch
 This milestone is the most complex. Using an infinite while-loop, we will precisely develop a series of user inputs and outputs to "run the switch". Most of the inputs and outputs have been completed for you, but you will be responsible for creating a methods the switch needs. 

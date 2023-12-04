@@ -54,7 +54,16 @@ When we create the variables within our classes. We would like some way to acces
 def getStudentName(this):
     return this.name
 
-student1Name = getStudentName()
+name = student1.getStudentName()
 ```
 
 Note that the word `this` is an argument in the class method, but it is not passed in when called upon. The `this` keyword is a filler word that grants access to the class.
+
+## Setters
+Suppose we need to change a variable within a class at some random point of the program. This is where setters occur. Setters usually take an argument and **set** the argument as a class variable. For example, take this example
+```python
+def setStudentName(this, name):
+    this.name = name
+
+student1.setStudentName("Jack")
+```

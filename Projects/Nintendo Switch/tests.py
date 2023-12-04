@@ -1,4 +1,4 @@
-from nintendo_switch_ans import *
+#from nintendo_switchans import *
 from nintendo_switch import *
 
 #comment out the first line to test your code
@@ -7,7 +7,7 @@ from nintendo_switch import *
 
 """OWNER COPY"""
 
-def milestone1():
+def milestone0():
     tests_pass = 0
     try:
         tests_pass += asserter(1.1, "switchuser357", user1.get_name(), False)
@@ -23,7 +23,7 @@ def milestone1():
     else:
         print("MILESTONE 1 FAILED: " + str(tests_pass) + "/4 passed.")
 
-def milestone2():
+def milestone1():
     tests_pass = 0
     
 
