@@ -40,7 +40,6 @@ def asserter(test_case, exp, ret, exception):
         return 0
 
 user1 = User("fake_email@gmail.com", "password", "switchuser357")
-milestone1()
+milestone0()
 quiz_game = QuizGame("quiz")
 user1.add_game(quiz_game)
-user1.select_game(0)
