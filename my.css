@@ -88,6 +88,8 @@ pre {
     background-color: #000000; /* Background color */
     border-radius: 5px; /* Rounded corners */
     overflow: auto; /* Enable scrollbar if the content is too long */
+    counter-reset: line;
+    margin-top: 0;
 }
 
 code {
@@ -97,6 +99,131 @@ code {
     font-family: monospace;
     color: white;
 }
+
+/*line numbers*/
+code span.line-number {
+    display: inline-block;
+    counter-increment: line;
+    width: 2em;
+    margin-right: 1em;
+    font-style: oblique;
+    color: gray; /* Adjust color as needed */
+}
+
+code span.line-number:before {
+    content: counter(line);
+    display: inline-block;
+    text-align: right;
+}
+.flippable {
+    perspective: 1000px;
+    width: 200px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-front .flip-card-inner{
+    text-align: center;
+  }
+  
+  .flipped .flip-card-inner {
+    transform: rotateX(180deg);
+}
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+    transform-origin: center;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #bbb;;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.flip-card-back pre {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Center vertically */
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.flip-card-front {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Optional: Align items in the center horizontally */
+}
+
+.flip-card-front h3{
+    color:teal
+}
+
+.flip-card-front p{
+    color: rgb(0, 0, 0);
+}
+
+.flip-card-front h3,
+.flip-card-front p{
+    margin: 0; /* Reset margin to remove any default spacing */
+}
+  
+/* Adjust the rotation values */
+.flip-card-inner {
+    transform: rotateX(0deg);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
 .code-block {
     background-color: #f4f4f4;
     padding: 10px;
