@@ -35,9 +35,23 @@
                         </ul>
                     </li>
                     
-                    <li><a href="#chapter2">Chapter 2</a></li>
-                    <li><a href="#chapter3">Chapter 3</a></li>
+                    <li><a href="#chapter2">Chapter 2: Numbers and Variables</a></li>
+                    <li><a href="#chapter3">Chapter 3: Variable Types</a></li>
+                    <li><a href="#chapter4">Chapter 4: Conditionals and Booleans</a></li>
+                    <li><a href="#chapter5">Chapter 5: Introduction to Arrays</a></li>
+                    <li><a href="#chapter11">Chapter 11: Importing Files</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section11-1">Section 11.1 Introduction</a></li>
+                            <li><a href="#section11-2">Section 11.2 Files and Directories</a></li>
+                            <li><a href="#section11-3">Section 11.3 Importing Local Files</a></li>
+                            <li><a href="#section11-4">Section 11.4 Importing Libraries</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter12">Chapter 12: Exception Handling</a></li>
+                    <li><a href="#chapter12">Chapter 13: Python GUIs with Tkinter</a></li>
                     <li><a href="#practice">Practice Questions</a></li>
+                    
+                    
                 </ul>
             </nav>
         </div>
@@ -498,13 +512,113 @@ Elapsed Time: 0.0 seconds</span>
                 often have cool functions and require you to access low-level parts of your operating system. We won't dive 
             into how these libraries work, but it is a good read if you are interested in low-level programming.</p>
 
-            <h4 class="section11-2">Files and Directories</h4>
+            <h4 class="section11-2">Section 11.2 Files and Directories</h4>
             <p>Before we can import libraries and other files, we have to understand what is a file first. 
                 <a class="italics">Files</a> are the individual programs on your computer. This could 
                 be <a class="italics">scratchwork.py</a>, <a class="italics">word.txt</a>, 
-                <a class="italics">homework.pdf</a>. <a></a> 
+                <a class="italics">homework.pdf</a>. <a class="italics">Directories</a> are the folders that can store
+                multiple files. This could be your desktop, downloads, or homework folder you might have created.
             </p>
-            </section>
+            <img src="images/workingwithfiles_address_bar.jpg">
+            <p><a class="italics">Pictured above is a "Documents" directory. It contains files like Budget.csv, CoverLetter.txt 
+                and it also contains other directories like Photos, Recipes, etc.
+            </a></p>
+            <h4 class="section11-3">Section 11.3 Importing Local Files</h4>
+            <p>For now, we will only focus on local imports, that is importing a Python file that's in the same 
+                directory as another. Let's say we have a method in one file that generates a random password based on someone's 
+                email:
+            </p>
+            <pre>
+                <code>
+<span class="line-number"></span><span class="comment">#call this program file1.py</span>
+<span class="line-number"></span><span class="keyword">def </span><span class="variable">print_info(email): </span>
+<span class="line-number"></span>   <span class="variable">password </span>= <span class="string">""</span>
+<span class="line-number"></span>   <span class="keyword">for </span><span class="variable">i </span><span class="keyword">in </span><span class="variable">email: </span>
+<span class="line-number"></span>       <span class="variable">password</span> += <span class="keyword">chr(</span><span class="keyword">ord(</span><span class="variable">i</span><span class="keyword">)</span> + <span class="integer">3</span><span class="keyword">)</span>
+<span class="line-number"></span>   <span class="keyword">return</span><span class="variable"> password</span>
+                </code>
+            </pre>
+            <p>And let's say you were developing a bank platform and wanted to reuse this password generation 
+                method. In this case, everytime a new user is created, the bank.py creates a password the user
+            </p>
+            <pre>
+                <code>
+<span class="line-number"></span><span class="comment">#call this program bank.py</span>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">User(): </span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, email, <span class="comment">#could have more...</span>): </span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">name</span> = <span class="variable">name</span>
+<span class="line-number"></span> 
+<span class="line-number"></span>       <span class="comment">#would be great to reuse password generator here!</span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">password</span> = <span class="string">""</span>
+<span class="line-number"></span> 
+<span class="line-number"></span>       <span class="comment">#any other relevant infomation needed</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="comment">#rest of the program occurs here</span>
+                </code>
+            </pre>
+            <p>To import methods or classes from other files, you'll need two keywords: <code class="inline_code">from</code>
+            and <code class="inline_code">import</code></p>
+            <ul>
+                <li><code class="inline_code">from</code>: dictates which file you want to import from</li>
+                <li><code class="inline_code">import</code>: what specifically from the file you want to import</li>
+            </ul>
+            <p>In the case of the bank and passwords, to import the method from file1.py to bank.py...</p>
+            <pre>
+                <code>
+<span class="line-number"></span><span class="keyword">from </span><span class="variable">file1</span> <span class="keyword">import </span><span class="variable">password</span>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">User(): </span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, email, <span class="comment">#could have more...</span>): </span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">name</span> = <span class="variable">name</span>
+<span class="line-number"></span> 
+<span class="line-number"></span>       <span class="comment">#use password() like it was already written in the program!</span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">password</span> = <span class="keyword">password(</span><span class="variable">email</span><span class="keyword">)</span>
+<span class="line-number"></span> 
+<span class="line-number"></span>       <span class="comment">#any other relevant infomation needed</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="comment">#rest of the program occurs here</span>
+                </code>
+            </pre>
+            <p>This is useful when you want to reuse code you have already written, or want to stay organized when 
+                writing longer code. If you want to multiple import multiple methods or classes, you can separate them using commas...
+            </p>
+            <pre>
+                <code>
+<span class="line-number"></span><span class="keyword">from </span><span class="variable">file1</span> <span class="keyword">import </span><span class="variable">method1</span>,<span class="variable"> method2</span>
+                </code>
+            </pre>
+            <p>Or if you have a lot of methods or classes, you can use a <code class="inline_code">*</code>, which means import all</p>
+            <pre>
+                <code>
+<span class="line-number"></span><span class="keyword">from </span><span class="variable">file1</span> <span class="keyword">import </span><span class="keyword">*</span>
+                </code>
+            </pre>
+            <h4 id="section11-4">Section 11.4 Importing Libraries</h4>
+            <p>As mentioned earlier, libraries are pieces of code written by other people. Most of these 
+                libraries do not exist on your computer intially, and you'll need to install the libraries on 
+                your system before using 
+                it. (Some libraries come pre-installed with the Python installation)
+            </p>
+            <p>To install a library, you'll need to usually use <code class="inline_code">pip install {insert whatever 
+                library here}</code> in your terminal. To check if a library is sucessfully installed on your system, try
+            and find the version of the library and print it to your terminal.</p>
+
+            <p>For example, let's practice by installing <a class="italics">Tkinter</a>, a popular Python library 
+            for building GUIs. To install Tkinter, go to your terminal and type in</p>
+            <pre>
+                <code>
+<span class="terminal">pip install tk</span>
+                </code>
+            </pre>
+            <p>Once <a class="italics">Tkinter</a> is installed, you can import it, using the same keywords 
+            as if it was a local file.</p> 
+            <pre>
+                <code>
+<span class="line-number"></span><span class="keyword">from</span> <span class="variable">tkinter</span><span class="keyword"> import</span> <span class="variable">*</span>
+                </code>
+            </pre>
+            <p>It's important to note that every library has a different installation process and import process. You 
+                should always consult the official library's website for proper installation.
+            </p>
             <section id="practice">
                 <h2>Practice Problems</h2>
                 <p>This section contains additional practice questions that can help further your understanding 

@@ -92,6 +92,15 @@ pre {
     margin-top: 0;
 }
 
+.keyword_pre{
+    white-space: pre-wrap;
+    width:auto;
+}
+
+.inline_code{
+    background-color: black;
+}
+
 code {
     background-color: #ffffff00;
     padding: 2px 4px;
@@ -269,6 +278,7 @@ code span.line-number:before {
 }
 
 .comment{
+    font-style: italic;
     color: gray;
 }
 
