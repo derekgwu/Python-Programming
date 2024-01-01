@@ -109,7 +109,19 @@ code span.line-number {
     font-style: oblique;
     color: gray; /* Adjust color as needed */
 }
+.sub-toc {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
 
+.sub-toc a {
+    color: #ffffff;
+}
+
+.sub-toc a:hover {
+    color: rgb(237, 61, 91); /* Change the color to your desired hover color */
+}
 code span.line-number:before {
     content: counter(line);
     display: inline-block;
@@ -197,6 +209,14 @@ code span.line-number:before {
     display: flex;
     flex-direction: column;
     align-items: center; /* Optional: Align items in the center horizontally */
+}
+
+.flip-card-front pre{
+    align-items: none;
+    width:100%;
+    margin: 0; /* Reset margin to ensure full width */
+    padding: 0; /* Reset padding to ensure full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
 }
 
 .flip-card-front h3{

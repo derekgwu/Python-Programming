@@ -50,3 +50,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.querySelectorAll('.flip-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+  });
+
+ // Add click event listeners to toggle visibility of sub-tocs
+ document.addEventListener("DOMContentLoaded", function () {
+    const chapters = document.querySelectorAll('.toc > li');
+
+    chapters.forEach(chapter => {
+        chapter.addEventListener('click', function () {
+            const subToc = this.querySelector('.sub-toc');
+            if (subToc) {
+                subToc.style.display = subToc.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+    });
+});

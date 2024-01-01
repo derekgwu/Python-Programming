@@ -16,11 +16,28 @@
     <div class="container">
         <div class="sidebar">
             <nav>
-                <ul>
-                    <li><a href="#chapter0">Chapter 0: Python Installation and Overview</a></li>
-                    <li><a href="#chapter1">Chapter 1: Becoming a Programmer</a></li>
+                <ul class="toc">
+                    <li><a href="#chapter0">Chapter 0: Python Installation and Overview</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section0-1">Section 0.1 Introduction</a></li>
+                            <li><a href="#section0-2">Section 0.2: Installing Python</a></li>
+                            <li><a href="#section0-3">Section 0.3: Running Your First Program</a></li>
+                        </ul>
+                    <li><a href="#chapter1">Chapter 1: Becoming a Programmer</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section1-1">Section 1.1: Introduction to Programming</a></li>
+                            <li><a href="#section1-1-1">Section 1.1.1 What Goes In Must Come Out</a></li>
+                            <li><a href="#section1-2">Section 1.2 Section 1.2 Design Time, Compile Time, Execute Time</a></li>
+                            <li><a href="#section1-2-1">Section 1.2.1 Design Time</a></li>
+                            <li><a href="#section1-2-2">Section 1.2.2 Compile Time</a></li>
+                            <li><a href="#section1-2-3">Section 1.2.3 Execution Time</a></li>
+                            <li><a href="#section1-3">Section 1.3 Unit Testing and Debugging</a></li>
+                        </ul>
+                    </li>
+                    
                     <li><a href="#chapter2">Chapter 2</a></li>
                     <li><a href="#chapter3">Chapter 3</a></li>
+                    <li><a href="#practice">Practice Questions</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,7 +46,7 @@
             <section id="chapter0">
                 <h2>Chapter 0: Python Overview and Installation</h2>
 
-                <h4>Section 0.1: Introduction</h4>
+                <h4 id="section0-1">Section 0.1: Introduction</h4>
 
                 <p>Welcome to Python Programming! This comprehensive guide offers a full introduction
                     to software development in Python. For reference, this is an HTML document (with CSS and JS)
@@ -42,9 +59,9 @@
                     Instagram and Facebook.
                 </p>
 
-                <h4>Section 0.2: Installing Python</h4>
+                <h4 id="section0-2">Section 0.2: Installing Python</h4>
                 <p>If you do not have Python already installed, please read this section. Otherwise, you can move onto
-                    the next section, <a href="#section1.3" class="section_link">Running Your First Program</a>.
+                    the next section, <a href="#section0-3" class="section_link">Running Your First Program</a>.
                 </p>
 
                 <p>To install Python, you'll need two things:</p>
@@ -60,7 +77,7 @@
                     and run code. There are many options to choose from, but I personally suggest VSCode. You can download
                     and setup VSCode <a href="https://code.visualstudio.com/" class="section_link">here.</a>
                 </p>
-                <h4 id="section1.3">Section 0.3: Running Your First Program</h4>
+                <h4 id="section0-3">Section 0.3: Running Your First Program</h4>
                 <p>To check if Python is successfully installed, open up your command terminal and type "python". If 
                     a version number appears in your command line, Python is succesfully installed and you are ready
                     to run your first program.
@@ -113,8 +130,8 @@
             </section>
 
             <section id="chapter1">
-                <h2>Chapter 1: Becoming a Programmer</h2>
-                <h4>Section 1.1: Introduction to Programming</h4>
+                <h2 id="chapter2">Chapter 1: Becoming a Programmer</h2>
+                <h4 id="section1-1">Section 1.1: Introduction to Programming</h4>
                 <p>Every time we interact with a computer, we are interacting with someone's code 
                     (usually). It might not seem like it, but we take many things for granted. 
                     From banking to YouTube, everything has been automated to be as efficient as 
@@ -123,7 +140,7 @@
                     <pre class="practice_pre">
                         <h3 class="practice_header">THINK:</h3><p>What's a piece of technology that you use every day that likely has code in it?</p>
                     </pre>
-                <h4>Section 1.1.1 What Goes In Must Come Out</h4>
+                <h4 id="section1-1-1">Section 1.1.1 What Goes In Must Come Out</h4>
                 <p>When programming, you often want to narrow your programs into a simple input-output process.
                     That is your program should take in a problem and output a solution. The <a class="italics">
                         black box
@@ -131,7 +148,7 @@
                     should not worry about it.
                 </p>
                 <img src="images/thumbnail_Black-box.jpg">
-                <h4>Section 1.2 Design Time, Compile Time, Execute Time</h4>
+                <h4 id="section1-2">Section 1.2 Design Time, Compile Time, Execute Time</h4>
                 <p>As a programmer, we are usually tasked with a problem and have to develop a solution to it. At a high-level, 
                     we can break down our problems in software development into three stages:</p>
 
@@ -141,7 +158,7 @@
                     <li>Execution Time</li>
                 </ul>
 
-                <h4>Section 1.2.1 Design Time</h4>
+                <h4 id="section1-2-1">Section 1.2.1 Design Time</h4>
                 <p>For example, let's say we work for NASA and we want to (hypothetically) travel to 
                     Mars. We've identified our problem, and the answer might seem obvious 
                     (rocket ship). But design time is not just coming up with a solution. 
@@ -157,7 +174,7 @@
                     While it might seem like overkill, the more time you spend planning, 
                     the less time you'll have to spend coding and fixing your code. Because every 
                     time your code breaks, you'll be back at design time.</p>
-                <h4>Section 1.2.2 Compile Time</h4>
+                <h4 id="section1-2-2">Section 1.2.2 Compile Time</h4>
                 <p>This is basically the "coding time". But what does compiling mean? To understand compiling, 
                     let's pretend instead of talking to a computer, 
                     you are talking to the newest foreign exchange student. 
@@ -170,7 +187,7 @@
                     design time and compile time at the same time, and you'll work extra slowly. 
                     This should only be about 25% of the time spent in the development process.</p>
 
-                    <h4>Section 1.2.3 Execution Time</h4>
+                    <h4 id="section1-2-3">Section 1.2.3 Execution Time</h4>
                     <p>Finally, after you have designed your implementations and code, you are ready to run your code. 
                         Now, two things can happen here:</p>
                     <ul>
@@ -187,7 +204,7 @@
                         not do what it's supposed to do. This might be where you write a program to detect whether
                     a number is odd or even, and your program outputs odd for even numbers.</p>
 
-                    <h4>Section 1.3 Unit Testing and Debugging</h4>
+                    <h4 id="section1-3">Section 1.3 Unit Testing and Debugging</h4>
                     <p>Now how do you know when you are done? Your code needs to go through rigorous testing to
                         ensure it does what you expect it to do. This comes in the form of unit testing or test cases.
                         Unit tests are portions of code to systematically measure the outputs of your code. We will 
@@ -298,7 +315,8 @@ Elapsed Time: 0.0 seconds</span>
                     </code>
                 </pre>
                 <p>In the code snippet above, you have created a container with the label "x" that is 
-                    holding the value of 6. 
+                    holding the value of 6. Variables can be called whatever you want (i.e num1, number, potato),
+                    as long it is not a keyword in python (i.e for, in, break).
                 </p>
                 <p>If you want to print out whatever is inside the container using print statements, you
                     can simply write:
@@ -382,6 +400,82 @@ Elapsed Time: 0.0 seconds</span>
 <span class="line-number"></span><span class="variable">x</span> = <span class="variable">y</span>
                     </code>
                   </pre>
+                  <p>Printing x now will yield: </p>
+                  <pre>
+                    <code>
+<span class="terminal">8</span>
+                    </code>
+                  </pre>
+                <div class="flip-card"id="card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="practice_header">PRACTICE</h3>
+                            <p>If we printed y, what is printed?</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <pre>
+                                <code>
+<span class="terminal">8</span>
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <h4 id="section2-5">Section 2.5 Putting Everything Together</h4>
+                <p>Now that we know how to handle multiple variables and operators, we can start 
+                    combining them together, for example:
+                </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">num1</span> = <span class="integer">10</span>
+<span class="line-number"></span><span class="variable">num2</span> = <span class="integer">5</span>
+<span class="line-number"></span><span class="variable">num3</span> = <span class="variable">num1</span> + <span class="variable">num2</span>
+<span class="line-number"></span><span class="keyword">print(</span><span class="variable">num3</span><span class="keyword">)</span>
+                    </code>
+                </pre>
+
+                <p>Which yields:</p>
+                <pre>
+                    <code>
+<span class="terminal">15</span>
+                    </code>
+                </pre>
+                <h4 class="review">Section 2.R Chapter 2 Review</h4>
+                <p>Now that the document is covering actual content, I will put in review 
+                    for each chapter and cover the big ideas from the chapter.
+                </p>
+                <h5>Section 2.2</h5>
+                <p>Python offer five operators for numbers</p>
+                <ul>
+                    <li>Addition: +</li>
+                    <li>Subtraction: -</li>
+                    <li>Multiplication: *</li>
+                    <li>Division: /</li>
+                    <li>Modulo: %</li>
+                </ul>
+                <h5>Section 2.3 & 2.4 & 2.5</h5>
+                <p>Variables are containers to store values. They can have any name you give it 
+                    , as long it is not a keyword in Python.
+                </p>
+                <p>Variables can change values over time in a program like so: </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">x</span> = <span class="integer">6</span>
+<span class="line-number"></span><span class="keyword">print(</span><span class="variable">x</span><span class="keyword">)</span>
+<span class="line-number"></span><span class="variable">x</span> = <span class="integer">5</span>
+                    </code>
+                </pre>
+                <p>You can also have multiple variables running simultaneously such as:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">x</span> = <span class="integer">6</span>
+<span class="line-number"></span><span class="variable">y</span> = <span class="integer">8</span>
+                    </code>
+                </pre>
+                <p>As long as your variables are numbers, your standard operators will work on variables 
+                    too.
+                </p>
+
 
                   
 
@@ -391,13 +485,53 @@ Elapsed Time: 0.0 seconds</span>
                 <h2>Chapter 3: Topic 2</h2>
                 <p>Your content goes here for Chapter 3...</p>
             </section>
-            <section id="chapter3">
-                <h2>Chapter 3: Topic 2</h2>
-                <p>Your content goes here for Chapter 3...</p>
+            <section id="chapter11">
+                <h2>Chapter 11: Importing Files</h2>
+                <h4 id="section11-1">Section 11.1 Introduction</h4>
+                <p>An overarching goal of this document and programming in general is to reuse as much code 
+                    as possible. Additionally, whenever you use libraries (i.e PIL and TKinter for GUIs), you 
+                    are essentailly re-using someone else's code. Imagine if you had to re-type all the code 
+                    in a library before using it.
+                </p>
+                <p>Importing is usually used for importing Python libraries. <a class="italics">Libraries</a> 
+                are portions of code that someone else or you have written. Using libraries are useful as some libraries 
+                often have cool functions and require you to access low-level parts of your operating system. We won't dive 
+            into how these libraries work, but it is a good read if you are interested in low-level programming.</p>
+
+            <h4 class="section11-2">Files and Directories</h4>
+            <p>Before we can import libraries and other files, we have to understand what is a file first. 
+                <a class="italics">Files</a> are the individual programs on your computer. This could 
+                be <a class="italics">scratchwork.py</a>, <a class="italics">word.txt</a>, 
+                <a class="italics">homework.pdf</a>. <a></a> 
+            </p>
             </section>
-            <section id="chapter3">
-                <h2>Chapter 3: Topic 2</h2>
-                <p>Your content goes here for Chapter 3...</p>
+            <section id="practice">
+                <h2>Practice Problems</h2>
+                <p>This section contains additional practice questions that can help further your understanding 
+                    of the material in the document. These are questions that should only take about 1-2 minutes to answer, 
+                    and are formatted similar to the blue box practice questions you might see in the text.
+                </p>
+                <h4 id="sectionp-2">Chapter 2 Practice Problems</h4>
+                <div class="flip-card"id="card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3 class="practice_header">PRACTICE 2.2</h3>
+                            <p>What is happens when this program is ran?</p>
+                            <pre>
+                                <code>
+<span class="line-number"></span><span class="keyword">print(</span><span class="integer">(10 + 12) * 3</span><span class="keyword">)</span>
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="flip-card-back">
+                            <pre>
+                                <code>
+<span class="terminal">66</span>
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
