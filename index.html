@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Textbook Title</title>
+    <title>Python Programming</title>
     <link rel="stylesheet" type="text/css" href="my.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
@@ -38,7 +38,9 @@
                     <li><a href="#chapter2">Chapter 2: Numbers and Variables</a></li>
                     <li><a href="#chapter3">Chapter 3: Variable Types</a></li>
                     <li><a href="#chapter4">Chapter 4: Conditionals and Booleans</a></li>
-                    <li><a href="#chapter5">Chapter 5: Introduction to Arrays</a></li>
+                    <li><a href="#chapter5">Chapter 5: Introduction to Arrays and Loops</a></li>
+                    <li><a href="#chapter6">Chapter 6: Characters and Strings</a></li>
+                    <li><a href="#chapter7">Chapter 7: Methods and Scope</a></li>
                     <li><a href="#chapter11">Chapter 11: Importing Files</a>
                         <ul class="sub-toc">
                             <li><a href="#section11-1">Section 11.1 Introduction</a></li>
@@ -50,6 +52,7 @@
                     <li><a href="#chapter12">Chapter 12: Exception Handling</a></li>
                     <li><a href="#chapter12">Chapter 13: Python GUIs with Tkinter</a></li>
                     <li><a href="#practice">Practice Questions</a></li>
+                    <li><a href="#exercise">Excercises</a></li>
                     
                     
                 </ul>
@@ -184,6 +187,7 @@
                     <li>How much oxygen do we need?</li>
                     <li>How much food do we need?</li>
                 </ul>
+                <img src="images/rocket gif.gif">
                 <p>When it comes to software development, you'll want to spend 70-90% of the time designing. 
                     While it might seem like overkill, the more time you spend planning, 
                     the less time you'll have to spend coding and fixing your code. Because every 
@@ -619,6 +623,11 @@ Elapsed Time: 0.0 seconds</span>
             <p>It's important to note that every library has a different installation process and import process. You 
                 should always consult the official library's website for proper installation.
             </p>
+            </section>
+
+            <section id="chapter12">
+                
+            </section>
             <section id="practice">
                 <h2>Practice Problems</h2>
                 <p>This section contains additional practice questions that can help further your understanding 
@@ -646,6 +655,37 @@ Elapsed Time: 0.0 seconds</span>
                         </div>
                     </div>
                 </div>
+            </section>
+            <section>
+                <h2 id="exercise">Exercises</h2>
+                <p>These are excercise to help develop problem-solving and coding skills. These should 
+                    take at least 5 minutes to do.
+                </p>
+                <h3 id="chapter11e">Chapter 11 Exercises</h3>
+                <h4>Practice 11.1 - Developing a Messaging System using Encryption and Decryption</h4>
+                <p>Using your encrpytion and decryption methods from chapter 6 exercises, write a method 
+                    that simulates a messaging platform. It should:
+                </p>
+                <ul>
+                    <li>Print the input</li>
+                    <li>Encrypt and print the input in encrypted form</li>
+                    <li>Decrypt and print the input in decrypted form</li>
+                </ul>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="comment">#Hint: you many need to import something!</span>
+<span class="line-number"></span><span class="keyword">def </span><span class="variable">msg_service(<span class="variable">msg</span>):</span>
+<span class="line-number"></span>   <span class="comment">#print the msg here</span>
+<span class="line-number"></span>   <span class="comment">#encrypt the msg</span>
+<span class="line-number"></span>   <span class="variable">encrypted_msg</span> = <span class="string">""</span>
+<span class="line-number"></span>   <span class="keyword">assert </span><span class="variable">encrypted_msg </span>== <span class="string">"hoork"</span>
+<span class="line-number"></span>   <span class="comment">#decrypt the msg</span>
+<span class="line-number"></span>   <span class="variable">decrypted_msg</span> = <span class="string">""</span>
+<span class="line-number"></span>   <span class="keyword">assert </span><span class="variable">decrypted_msg </span>== <span class="string">"hello"</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="variable">msg_service(<span class="string">"hello"</span>)</span>
+                    </code>
+                </pre>
             </section>
         </div>
     </div>
