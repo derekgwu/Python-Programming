@@ -69,3 +69,28 @@ document.querySelectorAll('.flip-card').forEach(function(card) {
         });
     });
 });
+
+document.getElementById('viewPythonCode').addEventListener('click', function() {
+    // Load the Python file content dynamically
+    fetch('scratchwork.py')  // Replace 'example.py' with the path to your Python file
+        .then(response => response.text())
+        .then(data => {
+            // Display the Python code in the pre tag
+            document.getElementById('pythonCodeContainer').textContent = data;
+        })
+        .catch(error => console.error('Error fetching Python code:', error));
+});
+
+document.getElementById('viewPythonCode').addEventListener('click', function() {
+    // Load the Python file content dynamically
+    fetch('scratchwork.py')  // Replace 'example.py' with the path to your Python file
+        .then(response => response.text())
+        .then(data => {
+            // Create a data URL for the Python code
+            const dataURL = 'data:text/plain;charset=utf-8,' + encodeURIComponent(data);
+
+            // Open the Python code in a new tab
+            window.open(dataURL, '_blank');
+        })
+        .catch(error => console.error('Error fetching Python code:', error));
+});

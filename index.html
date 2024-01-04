@@ -35,7 +35,15 @@
                         </ul>
                     </li>
                     
-                    <li><a href="#chapter2">Chapter 2: Numbers and Variables</a></li>
+                    <li><a href="#chapter2">Chapter 2: Numbers and Variables</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section2-1">Section 2.1: Introduction to Numbers in Programming</a></li>
+                            <li><a href ="#section2-2">Section 2.2 Simple Math with Python</a></li>
+                            <li><a href="#section2-3">Section 2.3 Advanced Math and Variables</a></li>
+                            <li><a href="#section2-3-1">Section 2.3.1 Reading Programs</a></li>
+                            <li><a href="#section2-4">Section 2.4 Handling Multiple Variables</a></li>
+                            <li><a href="#section2-5">Section 2.5 Putting It Together</a></li>
+                        </ul></li>
                     <li><a href="#chapter3">Chapter 3: Variable Types</a></li>
                     <li><a href="#chapter4">Chapter 4: Conditionals and Booleans</a></li>
                     <li><a href="#chapter5">Chapter 5: Introduction to Arrays and Loops</a></li>
@@ -146,8 +154,8 @@
                 </p>
             </section>
 
-            <section id="chapter1">
-                <h2 id="chapter2">Chapter 1: Becoming a Programmer</h2>
+            <section>
+                <h2 id="chapter1">Chapter 1: Becoming a Programmer</h2>
                 <h4 id="section1-1">Section 1.1: Introduction to Programming</h4>
                 <p>Every time we interact with a computer, we are interacting with someone's code 
                     (usually). It might not seem like it, but we take many things for granted. 
@@ -235,9 +243,9 @@
                     </p>
             </section>
 
-            <section id="chapter2">
-                <h2>Chapter 2: Numbers and Variables</h2>
-                <h4>Section 2.1: Introduction to Numbers in Programming</h4>
+            <section>
+                <h2 id="chapter2">Chapter 2: Numbers and Variables</h2>
+                <h4 id="section2-1">Section 2.1: Introduction to Numbers in Programming</h4>
                 <p>Computers and numbers are like peanut butter and jelly. They go together, but why?
                     What makes computers superior to humans is the ability to calculate and manage numbers
                     easily. Imagine processing <a class="italics">1024 * 546</a> in your head. By the time,
@@ -259,7 +267,7 @@
                     </code>
                 </pre>
             
-                <h4>Section 2.2 Simple Math with Python</h4>
+                <h4 id="section2-2">Section 2.2 Simple Math with Python</h4>
                 <p>Python offers many simple math operations to perform. It offers the standard
                     four operators in math:
                 </p>
@@ -322,7 +330,7 @@ Elapsed Time: 0.0 seconds</span>
                     operations first. 
                 </p>
 
-                <h4>Section 2.3 Advanced Math and Variables</h4>
+                <h4 id="section2-3">Section 2.3 Advanced Math and Variables</h4>
                 <p>Another mathematical concept that is in programming is variables, commonly taught in a high school algebra
                     course. However, variables in algebra are different than variables in programming. In programming, variables
                     act a container that can hold a value. It's best if we see an example.
@@ -364,7 +372,7 @@ Elapsed Time: 0.0 seconds</span>
 <span class="line-number"></span><span class="variable">x</span> = <span class="integer">5</span>
                     </code>
                 </pre>
-                <h4>Section 2.3.1 Reading Programs</h4>
+                <h4 id="section2-3-1">Section 2.3.1 Reading Programs</h4>
                 <p>As we start to read longer programs, it is essential to understand how programs run. 
                     Let's take Example 2.3.0 as a simple example. Programs read from the 1st line, then 2nd, and so
                     on so forth. 
@@ -400,7 +408,7 @@ Elapsed Time: 0.0 seconds</span>
                       </div>
                     </div>
                   </div>
-                  <h4>Section 2.4 Handling Multiple Variables</h4>
+                  <h4 id="section2-5">Section 2.4 Handling Multiple Variables</h4>
                   <p>Now consider this code:</p>
                   <pre>
                     <code>
@@ -661,6 +669,38 @@ Elapsed Time: 0.0 seconds</span>
                 <p>These are excercise to help develop problem-solving and coding skills. These should 
                     take at least 5 minutes to do.
                 </p>
+                <h3 id="chapter5">Chapter 5 Exercises</h3>
+                <h4>Practice 5.1 Remove Numbers</h4>
+                <p>Write the following program that when given an array of numbers and an integer, 
+                    you return a new array that does not contain that integer
+                    
+                </p>
+                <button id="viewPythonCode">View Python Code</button>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">def </span><span class="method">remove_num(<span class="variable">arr, num</span>):</span>
+<span class="line-number"></span>   <span class="comment">#your code here!</span>
+<span class="line-number"></span>   <span class="keyword">return </span><span class="integer">0</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="comment">#Unit Tests</span>
+
+<span class="line-number"></span>def asserter(test_case, exp, func, *args):
+<span class="line-number"></span>    try:
+<span class="line-number"></span>        ret = func(*args)
+<span class="line-number"></span>       if ret == exp:
+<span class="line-number"></span>           print("Test Case " + str(test_case) + " SUCCESS!")
+<span class="line-number"></span>       else:
+<span class="line-number"></span>          print("Test Case " + str(test_case) + " FAILED. We expected: " + str(exp) + " but you returned " + str(ret))
+<span class="line-number"></span>    except Exception as e:
+<span class="line-number"></span>        print("Test Case " + str(test_case) + f" had an exception: {type(e).__name__}: {e}")
+<span class="line-number"></span>
+<span class="line-number"></span>asserter(1, [1,2,3], remove_num, [0,1,2,3], 0)
+<span class="line-number"></span>asserter(2, [1,2], remove_num, [2], 1)
+<span class="line-number"></span>asserter(3, [1], remove_num, [], 1)
+<span class="line-number"></span>asserter(4, [1,2], remove_num, [1,2], 3)
+<span class="line-number"></span>asserter(5, [], remove_num, [0,0,0,0], 0)
+                    </code>
+                </pre>
                 <h3 id="chapter11e">Chapter 11 Exercises</h3>
                 <h4>Practice 11.1 - Developing a Messaging System using Encryption and Decryption</h4>
                 <p>Using your encrpytion and decryption methods from chapter 6 exercises, write a method 

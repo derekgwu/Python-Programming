@@ -269,6 +269,10 @@ code span.line-number:before {
     color: rgb(52, 237, 237);
 }
 
+.method{
+    color:yellow;
+}
+
 .integer{
     color:lime;
 }
