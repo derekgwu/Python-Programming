@@ -273,6 +273,11 @@ code span.line-number:before {
     color:yellow;
 }
 
+.args{
+    color:pink;
+    font-style: italic;
+}
+
 .integer{
     color:lime;
 }

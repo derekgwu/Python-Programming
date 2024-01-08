@@ -49,6 +49,8 @@
                     <li><a href="#chapter5">Chapter 5: Introduction to Arrays and Loops</a></li>
                     <li><a href="#chapter6">Chapter 6: Characters and Strings</a></li>
                     <li><a href="#chapter7">Chapter 7: Methods and Scope</a></li>
+                    <li><a href="#chapter8">Chapter 8: Classes</a></li>
+                    <li><a href="#chapter9">Chapter 9: Inheritance and Polymorphism</a></li>
                     <li><a href="#chapter11">Chapter 11: Importing Files</a>
                         <ul class="sub-toc">
                             <li><a href="#section11-1">Section 11.1 Introduction</a></li>
@@ -511,6 +513,110 @@ Elapsed Time: 0.0 seconds</span>
                 <h2>Chapter 3: Topic 2</h2>
                 <p>Your content goes here for Chapter 3...</p>
             </section>
+            <section>
+                <h2 id="chapter9">Chapter 9: Inheritance and Polymorphism</h2>
+                <h4>Section 9.1 Inheritance of Classes</h4>
+                <p>Now that you have learned what primitive and non-primitive types are, you'll soon 
+                    realize almost everything is non-primitive. As you create your own objects, you'll 
+                    might find yourself running into this problem.
+                </p>
+                <p>Suppose we have a person class:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Person():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age):</span>
+<span class="line-number"></span>       <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>       <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>       <span class="comment">#could have other things like birthday, hair color etc.</span>
+                    </code>
+                </pre>
+                <p>And suppose you are creating a school database server (i.e a place to manage students and staff). Then
+                    it would be helpful to make individual class for each type of person (i.e <code class="inline_code">student</code> 
+                    , <code class="inline_code">teacher</code>, <code class="inline_code">principal</code>, etc.)
+                </p>
+                <p>Now, whether you are student, teacher, principal or whoever you are, you have the share aspects 
+                    as a <code class="inline_code">Person</code>, that is you have a name, age, birthday. So, it would 
+                    seem kind of annoying to have give each student, teacher, principal, a name and age each type you declare it.
+                    After all, our goal in programming is to reuse as much code as possible.
+                </p>
+                <p>This is where the idea of <a class="italics">Inheritance</a> comes into play. Inheritance allows us to 
+                write generic classes that other classes can inherit its variables from. So instead of writing:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Student():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, grade):</span>
+<span class="line-number"></span>           <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>           <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>           <span class="variable">self.grade</span> = <span class="variable">grade</span>
+<span class="line-number"></span> 
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Teacher():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, salary):</span>
+<span class="line-number"></span>           <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>           <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>           <span class="variable">self.salary</span> = <span class="variable">salary</span>
+<span class="line-number"></span>           <span class="variable">self.courses_teaching</span> = <span class="integer">[]</span>
+<span class="line-number"></span> 
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Principal():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, salary,title):</span>
+<span class="line-number"></span>           <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>           <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>           <span class="variable">self.salary</span> = <span class="variable">salary</span>
+<span class="line-number"></span>           <span class="variable">self.title</span> = <span class="variable">title</span>
+                    </code>
+                </pre>
+                <p>We can create a generic (parent) class that another class (child) can inherit from. Additionally, 
+                    child classes can inherit methods as well. The next section will cover how to create parent and 
+                    child classes.
+                </p>
+                <h4 id="section9-2">Section 9.2 Writing Our Own Parent and Child Classes</h4>
+                <p>Parent classes are not any different than the regular classes you have been writing in chapter 8. 
+                    In the case of a generic <code class="inline_code">Person</code> class, you can simply write:
+                </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Person():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age):</span>
+<span class="line-number"></span>       <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>       <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>       <span class="comment">#could have other things like birthday, hair color etc.</span>
+<span class="line-number"></span>
+<span class="line-number"></span>   <span class="comment">#let's add a method to show inheritance of methods as well</span>
+<span class="line-number"></span>   <span class="keyword">def</span> <span class="variable">get_name(this):</span>
+<span class="line-number"></span>       <span class="keyword">return </span><span class="variable">this.name</span>
+                    </code>
+                </pre>
+                <p>Now let's say we want to create a <code class="inline_code">Student</code> class now that 
+                inherits the variables and methods from <code class="inline_code">Person</code>. To make a class inherit from 
+                another, you write:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Student(<span class="args">Person</span>):</span>
+                    </code>
+                </pre>
+                <p>Now, to create an instance of a <code class="inline_code">Student</code>, we need an <code class="inline_code">__init__()</code>
+                method. This is no different than a regular class (and you should treat these as regular classes). But what if we want to use the same constructor 
+                as our parent class? To do so, we call the parent's constructor using the <code class="inline_code">super()</code> keyword like so:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Student(<span class="args">Person</span>):</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, grade):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(<span class="args">name, age</span>)</span>
+<span class="line-number"></span>       <span class="comment">#you can add on additional variables, but always call the parent constructor first if needed</span>    
+<span class="line-number"></span>       <span class="variable">self.grade</span> = <span class="variable">grade</span>
+<span class="line-number"></span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="comment">#these two classes are the same</span>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Student():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, grade):</span>
+<span class="line-number"></span>           <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>           <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>           <span class="variable">self.grade</span> = <span class="variable">grade</span>
+<span class="line-number"></span> 
+                    </code>
+                </pre>
+                <p>And now you can sucessfully create a new instance of <code class="inline_code">Person</code> and 
+                <code class="inline_code">Student</code> like so</p>
+            </section>
             <section id="chapter11">
                 <h2>Chapter 11: Importing Files</h2>
                 <h4 id="section11-1">Section 11.1 Introduction</h4>
@@ -634,7 +740,59 @@ Elapsed Time: 0.0 seconds</span>
             </section>
 
             <section id="chapter12">
-                
+                <h2 id="chapter12">Chapter 12: Exception Handling</h2>
+                <h4 id="section12-1">Section 12.1: What Are Exceptions?</h4>
+                <p>It is all too common to run into exceptions in coding. You may be familar with
+                    some basic types of exceptions, such as IndexError and ZeroDivisionError. These are 
+                    what cause our programs to crash unexpectedly. Let's view some common exceptions you 
+                    have probably run into while debugging.
+                </p>
+                <h5>ZeroDivisionError</h5>
+                <p>Consider this code:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">print(<span class="integer">1<span>/</span>0</span>)</span>
+                    </code>
+                </pre>
+                <p>Maybe from math class you know this as undefined. In fact, Python does not know what to do 
+                    when this occurs. Thus, it raises the ZeroDivisionError.
+                </p>
+                <h5>IndexError</h5>
+                <p>Consider this code</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">arr</span> = <span class="integer">[0,1,2,3]</span>
+<span class="line-number"></span><span class="keyword">for</span><span class="variable"> i </span><span class="keyword">in range(<span class="integer">0,5,1</span>):</span>
+<span class="line-number"></span>   <span class="method">print(<span class="variable">arr[<span class="variable">i</span>]</span>)</span>
+                    </code>
+                </pre>
+                <p>This code prints out</p>
+                <pre>
+                    <code>
+                        <span class="terminal">
+0
+1
+2
+3
+Traceback (most recent call last):
+  File "error_sample.py", line 3, in module
+    print(arr[i])
+          ~~~^^^
+IndexError: list index out of range
+
+                        </span>
+                    </code>
+                </pre>
+                <p>This error is thrown when you try to access an array spot that does not exist.</p>
+                <h4>Section 12.2 Expectating Exceptions</h4>
+                <p>What a mouthful. We saw some common exceptions, but what if we wanted a specific exception 
+                    for our program. 
+                </p>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
             </section>
             <section id="practice">
                 <h2>Practice Problems</h2>
