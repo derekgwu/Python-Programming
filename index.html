@@ -616,6 +616,41 @@ Elapsed Time: 0.0 seconds</span>
                 </pre>
                 <p>And now you can sucessfully create a new instance of <code class="inline_code">Person</code> and 
                 <code class="inline_code">Student</code> like so</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Person():</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age):</span>
+<span class="line-number"></span>       <span class="variable">self.name</span> = <span class="variable">name</span>
+<span class="line-number"></span>       <span class="variable">self.age</span> = <span class="variable">age</span>
+<span class="line-number"></span>       
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Student(<span class="args">Person</span>):</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, grade):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(<span class="args">name, age</span>)</span>
+<span class="line-number"></span>       <span class="comment">#you can add on additional variables, but always call the parent constructor first if needed</span>    
+<span class="line-number"></span>       <span class="variable">self.grade</span> = <span class="variable">grade</span>
+<span class="line-number"></span>
+                    </code>
+                </pre>
+                <div class="flip-card" id="card1">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h3>Practice</h3>
+                        <br>
+                        <p>Using the <code class="inline_code">Person</code> class, write a <code class="inline_code">Teacher</code> class</p>
+                      </div>
+                      <div class="flip-card-back">
+                        <pre>
+                            <code>
+<span class="line-number"></span><span class="keyword">class </span><span class="variable">Teacher(<span class="args">Person</span>):</span>
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">__init__(self, name, age, salary):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(<span class="args">name, age</span>)</span>   
+<span class="line-number"></span>       <span class="variable">self.salary</span> = <span class="variable">salary</span>
+<span class="line-number"></span>
+                            </code>
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
             </section>
             <section id="chapter11">
                 <h2>Chapter 11: Importing Files</h2>
@@ -941,6 +976,16 @@ IndexError: list index out of range
 <span class="line-number"></span>asserter(8, 11, find_largest, [1,2,5,4,7,4,8,2,4,5,7,4,7,9,11,4])
                     </code>
                 </pre>
+                <h3 id = "chapter9e">Chapter 9 Exercises</h3>
+                <h4>Practice 9.1 - Racing Cars</h4>
+                <p>In this assignment, you will design your own F1 racing simulator. The goal is to create  
+                    an interactive program, where a user can pick a car, race it, and see its times. You 
+                    will create three types of cars, all built from the generic <code class="inline_code">Car</code>
+                    class. 
+                </p>
+                <p>The time for a car to complete a lap depends on 3 characteristics of the car, which are 
+                    <li></li>
+                </p>
 
                 <h3 id="chapter11e">Chapter 11 Exercises</h3>
                 <h4>Practice 11.1 - Developing a Messaging System using Encryption and Decryption</h4>
