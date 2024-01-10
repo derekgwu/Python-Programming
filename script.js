@@ -94,3 +94,8 @@ document.getElementById('viewPythonCode').addEventListener('click', function() {
         })
         .catch(error => console.error('Error fetching Python code:', error));
 });
+
+function redirectToPage(url) {
+    // Use window.location.href to redirect to the specified URL
+    window.location.href = url;
+}

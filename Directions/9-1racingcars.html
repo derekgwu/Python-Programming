@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming</title>
+    <link rel="stylesheet" type="text/css" href="/my.css">
+</head>
+<body class="directions">
+        <a href="/index.html#exercise"> < Click here to return</a>
+        <h2>Chapter 9.1 Excercise: Racing Cars</h2>
+        <h4>Goals</h4>
+        <ul>
+            <li>Inheritance</li>
+            <li>Classes</li>
+            <li>Methods</li>
+            <li>Translating Requirements to Code</li>
+        </ul>
+        <h4>Introduction</h4>
+        <p>In this assignment, you will be creating your own racing simulator. In many racing games, such 
+            as Mario Kart and Need For Speed, you are given the opportunity to choose your own car before racing 
+            it. In the assignment, the cars will be represented as objects. You will design a program such that 
+            a user can select a car and race the car, generating theorectical lap times. 
+        </p>
+        <h4>Design</h4>
+        <p>The design can be broken down into two parts, the design of the cars and the interactive method.</p>
+        <h5>Designing the Classes</h5>
+        <p>You are responsible for designing three car classes, that will all inherit from a parent 
+            <code class="inline_code">Car</code> class. The parent class consist of important characteristics
+            that each sub class will need to also have:
+            <ul>
+                <li><code class="inline_code">Speed</code>: This is an integer value that represents how 
+                fast a car is. It ranges from 0 to 100, with 0 being very slow and 100 being very fast. A 
+                car with a high speed value will benefit from a lower lap time.</li>
+                <li><code class="inline_code">Weight</code>: This is an integer value that represents how 
+                heavy a car is. It ranges from 0 to 100, with 0 being light and 100 being heavy. A car with 
+                a high weight value will move slower, while a lower weight value will move faster, hence having 
+                a lower lap time.</li>
+                <li><code class="inline_code">Control</code>: This is an integer value that represents how 
+                much control a car has. Cars will not have a consistent lap time each time they complete a lap. 
+                This means they will have laps where it will take them longer than usual to complete it.
+                The integer ranges from 0 to 100, with 0 meaning no control and 100 meaning high control. A car 
+            with high control will have less variation in lap time, and it can result in a lower lap time. </li>
+            <li><code class="inline_code">compute_time()</code>: This method simulates 50 laps and generates 
+            times based on a car's speed, weight, and control. </li>
+            <li><code class="inline_code">convert_time():</code>This method prints out each lap time to the terminal</li>
+            </ul>
+            <p>The <code class="inline_code">Car</code> class has been completed for you already, and due to the complexity 
+            of the <code class="inline_code">compute_time()</code> and <code class="inline_code">convert_time():</code> methods,
+        you'll likely want to use a form of inheritance to reuse code when constructing the other three subclasses. The three 
+            subclasses you will have to create yourself are:
+            <ul>
+                <li><code class="inline_code">Bullet</code>: This car has extreme speed, but it's great 
+                speed makes it diffucult it to control. It's weight is standard to most cars.</li>
+                <li><code class="inline_code">Precision</code>: This car is a master at sharp turns and 
+                staying on course. It requires multiple modifications to have this stability, which 
+                weight it down signficantly.</li>
+                <li><code class="inline_code">Feather</code>: This lightweight prototype takes off 
+                many modifications to maintain a light framework. With less modifications, like engine 
+                additions and afterburners, the speed aspect is low on this car.</li>
+            </ul> </p>
+        </p>
+        <p>
+            <a href="italics">Hint:</a> In the parent constructor of <code class="inline_code">Car</code>, it 
+            takes 4 arguments. You probably want to hard set the speed, control, and weight for each car, so 
+            your child <code class="inline_code">__init__()</code>, should only take one argument, and you 
+            should manually pass the stats you want to the <code class="inline_code">super().</code>
+        </p>
+        <h5>Designing the Interactive Portion</h5>
+        <p>This section you have more freedom. You should prompt the user twice, once to name their car and another 
+            time to choose their car. If a user does not successfully input either one, re-prompt them. Once their 
+            car has been set up, use the proper inherited methods to generate simulated times for them.
+        </p>
+        <p>There are no unit tests for this. You should be able to use all the cars, and the input/output should 
+            function properly.
+        </p>
+        <p>You can find the source code <a href="/SourceCode/racing.html">here</a></p>
+
+</body>
+</html>

@@ -28,12 +28,42 @@ class Car():
             totalsec_str = "0" + totalsec_str
 
         print("CURRENT TIME: " + totalmin_str + ":" + totalsec_str)
-
-
-#class Bullet(Car):
     
-#class Precision(Car):
-        
-#class Feather(Car):
+    def set_name():
+        None
 
-#def play():
+
+class Bullet(Car):
+    def __init__(self, name):
+        super().__init__(name, 70, 30, 50)
+
+    
+class Precision(Car):
+    def __init__(self, name):
+        super().__init__(name, 50, 70, 70)
+        #good control
+        #ok speed
+        #bad weight
+        
+class Feather(Car):
+    def __init__(self, name):
+        super().__init__(name, 30, 50, 30)
+
+def play():
+    input2 = input("Please Name Your Car: ")
+    input1 = input("Please Select Your Car: ")
+    user_car = None
+    if input1 == "Bullet":
+        user_car = Bullet(input2)
+    elif input1 == "Feather":
+        user_car = Feather(input2)
+    elif input1 == "Precision":
+        user_car = Precision(input2)
+    print("Racing your car: ")
+    user_car.compute_time()
+
+        
+
+
+
+play()
