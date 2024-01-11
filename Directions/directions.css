@@ -8,3 +8,11 @@ body {
     margin: 0;
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+
+.inline_code{
+    background-color: black;
+    color:white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
