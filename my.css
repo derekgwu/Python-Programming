@@ -291,6 +291,10 @@ code span.line-number:before {
     color: gray;
 }
 
+.array{
+    color: orangered;
+}
+
 .terminal{
     color:white;
     font-family: 'Courier New', Courier, monospace;

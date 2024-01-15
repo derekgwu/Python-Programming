@@ -50,17 +50,30 @@
                     <li><a href="#chapter6">Chapter 6: Characters and Strings</a></li>
                     <li><a href="#chapter7">Chapter 7: Methods and Scope</a></li>
                     <li><a href="#chapter8">Chapter 8: Classes</a></li>
-                    <li><a href="#chapter9">Chapter 9: Inheritance</a></li>
-                    <li><a href="#chapter10">Chapter 10: Polymorphism</a></li>
-                    <li><a href="#chapter11">Chapter 11: Importing Files</a>
+                    <li><a href="#chapter9">Chapter 9: Inheritance</a>
+                    <ul class="sub-toc">
+                        <li><a href="#section9-1">Section 9.1 Inheritance of Classes</a></li>
+                        <li><a href="#section9-2">Section 9.2 Writing Our Own Parent and Child Classes</a></li>
+                    </ul></li>
+                    <li><a href="#chapter10">Chapter 10: Polymorphism</a>
                         <ul class="sub-toc">
-                            <li><a href="#section11-1">Section 11.1 Introduction</a></li>
-                            <li><a href="#section11-2">Section 11.2 Files and Directories</a></li>
-                            <li><a href="#section11-3">Section 11.3 Importing Local Files</a></li>
-                            <li><a href="#section11-4">Section 11.4 Importing Libraries</a></li>
+                            <li><a href="#section10-1">Section 10.1 You've Been Using Polymorphism Already...</a></li>
+                            <li><a href="#section10-2">Section 10.2 Polymorphism Defined</a></li>
+                            <li><a href="#section10-3">Section 10.3 Inheritance and Polymorphism</a></li>
+                            <li><a href="#section10-4">Abstract Classes</a></li>
+                        </ul>
+                        
+                    </li>
+                    <li><a href="#chapter11">Chapter 11: Introduction to Data Structures</a></li>
+                    <li><a href="#chapter12">Chapter 12: Importing Files</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section12-1">Section 12.1 Introduction</a></li>
+                            <li><a href="#section12-2">Section 12.2 Files and Directories</a></li>
+                            <li><a href="#section12-3">Section 12.3 Importing Local Files</a></li>
+                            <li><a href="#section12-4">Section 12.4 Importing Libraries</a></li>
                         </ul>
                     </li>
-                    <li><a href="#chapter12">Chapter 12: Exception Handling</a></li>
+                    <li><a href="#chapter12">Chapter 13: Exception Handling</a></li>
                     <li><a href="#chapter12">Chapter 13: Python GUIs with Tkinter</a></li>
                     <li><a href="#practice">Practice Questions</a></li>
                     <li><a href="#exercise">Excercises</a></li>
@@ -653,9 +666,64 @@ Elapsed Time: 0.0 seconds</span>
                     </div>
                   </div>
             </section>
-            <section id="chapter11">
-                <h2>Chapter 11: Importing Files</h2>
-                <h4 id="section11-1">Section 11.1 Introduction</h4>
+            <section >
+                <h2 id="chapter10">Chapter 10: Polymorphism</h2>
+                <h4 id="section10-1">Section 10.1 You've Been Using Polymorphism Already...</h4>
+                <p>Imagine we had this code that randomly printed the lengths of different objects:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">import</span><span class="variable"> random</span>
+<span class="line-number"></span><span class="variable">arr</span> = <span class="method">[<span class="string">"1234"</span>, <span class="method">[<span class="integer">1,2,3</span>]</span>]</span>
+<span class="line-number"></span><span class="variable">rand_int</span> = <span class="keyword">random</span>.<span class="method">randrange(<span class="args">0,2</span>)</span>
+<span class="line-number"></span><span class="method">print(<span class="keyword">len(<span class="variable">arr[<span class="args">rand_int</span>]</span>)</span>)</span>
+                    </code>
+                </pre>
+                <p>Now, this function has two outputs, it could either print the length of the string (the first element)...</p>
+                <pre>
+                    <code>
+<span class="terminal">4</span>
+                    </code>
+                </pre>
+                <p>Or you could print the length of the integer array (the second element)</p>
+                <pre>
+                    <code>
+<span class="terminal">3</span>
+                    </code>
+                </pre>
+                <p>But a better question is, how does Python know at runtime whether <code class="inline_code">len()</code> is being used on an array or string?
+                We do not specify whether length is being used on either, and we leave it up to Python to decide.</p>
+                <h4 id="section10-2">Section 10.2 Polymorphism Defined</h4>
+                <p>Polymorphism is the idea where we have a one function name that can apply to multiple objects. In the example in <a href="#section10-1">10.1</a>, the 
+                <code class="inline_code">len()</code> method has one name for many different objects (strings, arrays, Lists, Tuples, etc...).  Consider this example:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Square():</span>
+<span class="line-number"></span>   </span><span class="keyword">def</span> <span class="variable">num_sides(<span class="args">this</span>):</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have 4 sides"</span>)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Triangle():</span>
+<span class="line-number"></span>   </span><span class="keyword">def</span> <span class="variable">num_sides(<span class="args">this</span>):</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have 3 sides"</span>)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span> <span class="variable">Hexagon():</span>
+<span class="line-number"></span>   </span><span class="keyword">def</span> <span class="variable">num_sides(<span class="args">this</span>):</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have 6 sides"</span>)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="variable">shapes</span> = <span class="array">[<span class="method">Square(), Triangle(), Hexagon()</span>]</span>
+<span class="line-number"></span><span class="keyword">for</span> <span class="variable">shape</span> <span class="keyword">in</span> <span class="variable">shapes:</span>
+<span class="line-number"></span>   <span class="variable">shape</span>.<span class="method">num_sides()</span>
+                    </code>
+                </pre>
+                <p>In this code, we have one method named <code class="inline_code">num_sides()</code> that performs a different action for each shape.</p>
+
+                
+
+            </section>
+            
+            
+            <section id="chapter12">
+                <h2>Chapter 12: Importing Files</h2>
+                <h4 id="section12-1">Section 12.1 Introduction</h4>
                 <p>An overarching goal of this document and programming in general is to reuse as much code 
                     as possible. Additionally, whenever you use libraries (i.e PIL and TKinter for GUIs), you 
                     are essentailly re-using someone else's code. Imagine if you had to re-type all the code 
@@ -666,7 +734,7 @@ Elapsed Time: 0.0 seconds</span>
                 often have cool functions and require you to access low-level parts of your operating system. We won't dive 
             into how these libraries work, but it is a good read if you are interested in low-level programming.</p>
 
-            <h4 class="section11-2">Section 11.2 Files and Directories</h4>
+            <h4 class="section12-2">Section 12.2 Files and Directories</h4>
             <p>Before we can import libraries and other files, we have to understand what is a file first. 
                 <a class="italics">Files</a> are the individual programs on your computer. This could 
                 be <a class="italics">scratchwork.py</a>, <a class="italics">word.txt</a>, 
@@ -677,7 +745,7 @@ Elapsed Time: 0.0 seconds</span>
             <p><a class="italics">Pictured above is a "Documents" directory. It contains files like Budget.csv, CoverLetter.txt 
                 and it also contains other directories like Photos, Recipes, etc.
             </a></p>
-            <h4 class="section11-3">Section 11.3 Importing Local Files</h4>
+            <h4 class="section12-3">Section 12.3 Importing Local Files</h4>
             <p>For now, we will only focus on local imports, that is importing a Python file that's in the same 
                 directory as another. Let's say we have a method in one file that generates a random password based on someone's 
                 email:
@@ -746,7 +814,7 @@ Elapsed Time: 0.0 seconds</span>
 <span class="line-number"></span><span class="keyword">from </span><span class="variable">file1</span> <span class="keyword">import </span><span class="keyword">*</span>
                 </code>
             </pre>
-            <h4 id="section11-4">Section 11.4 Importing Libraries</h4>
+            <h4 id="section12-4">Section 12.4 Importing Libraries</h4>
             <p>As mentioned earlier, libraries are pieces of code written by other people. Most of these 
                 libraries do not exist on your computer intially, and you'll need to install the libraries on 
                 your system before using 
@@ -775,9 +843,9 @@ Elapsed Time: 0.0 seconds</span>
             </p>
             </section>
 
-            <section id="chapter12">
-                <h2 id="chapter12">Chapter 12: Exception Handling</h2>
-                <h4 id="section12-1">Section 12.1: What Are Exceptions?</h4>
+            <section>
+                <h2 id="chapter13">Chapter 13: Exception Handling</h2>
+                <h4 id="section13-1">Section 13.1: What Are Exceptions?</h4>
                 <p>It is all too common to run into exceptions in coding. You may be familar with
                     some basic types of exceptions, such as IndexError and ZeroDivisionError. These are 
                     what cause our programs to crash unexpectedly. Let's view some common exceptions you 
@@ -820,7 +888,7 @@ IndexError: list index out of range
                     </code>
                 </pre>
                 <p>This error is thrown when you try to access an array spot that does not exist.</p>
-                <h4>Section 12.2 Expectating Exceptions</h4>
+                <h4>Section 13.2 Expectating Exceptions</h4>
                 <p>What a mouthful. We saw some common exceptions, but what if we wanted a specific exception 
                     for our program. 
                 </p>
