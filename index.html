@@ -60,7 +60,6 @@
                             <li><a href="#section10-1">Section 10.1 You've Been Using Polymorphism Already...</a></li>
                             <li><a href="#section10-2">Section 10.2 Polymorphism Defined</a></li>
                             <li><a href="#section10-3">Section 10.3 Inheritance and Polymorphism</a></li>
-                            <li><a href="#section10-4">Abstract Classes</a></li>
                         </ul>
                         
                     </li>
@@ -712,10 +711,72 @@ Elapsed Time: 0.0 seconds</span>
 <span class="line-number"></span><span class="variable">shapes</span> = <span class="array">[<span class="method">Square(), Triangle(), Hexagon()</span>]</span>
 <span class="line-number"></span><span class="keyword">for</span> <span class="variable">shape</span> <span class="keyword">in</span> <span class="variable">shapes:</span>
 <span class="line-number"></span>   <span class="variable">shape</span>.<span class="method">num_sides()</span>
+
                     </code>
                 </pre>
                 <p>In this code, we have one method named <code class="inline_code">num_sides()</code> that performs a different action for each shape.</p>
-
+                <h4 id="section10-3">Section 10.3 Inheritance and Polymorphism</h4>
+                <P>You can see how this would go hand and hand with inheritance, especially since child class inherit the exact same methods as their parents. Using this 
+                    technique, you can give specific child classes more specific methods, and certain child classes the exact same methods as their parents! Let's reuse 
+                    the shape example and create a parent class instance of it.
+                </P>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="comment">#Some parent class called shape</span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Shape():</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self, num_sides</span>):</span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">num_sides</span> = <span class="variable">num_sides</span>
+<span class="line-number"></span>
+<span class="line-number"></span>   <span class="keyword">def</span> <span class="variable">print_info(<span class="args">this</span>):</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have" + <span class="variable">this.num_sides</span> + " sides")</span>
+<span class="line-number"></span>   
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
+<span class="line-number"></span>       <span class="keyword">if</span> <span class="keyword">this.<span class="variable">num_sides</span> > <span class="integer">3</span>:
+<span class="line-number"></span>           <span class="keyword">return</span> <span class="variable">True</span>
+<span class="line-number"></span>       <span class="keyword">else:</span>
+<span class="line-number"></span>            <span class="keyword">return</span> <span class="variable">False</span>
+                    </code>
+                </pre>
+                <p>This is great! Now we do not need to rewrite a new <code class="inline_code">print_info()</code> method 
+                for every shape. Take a look at these examples of common shapes now.</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Square(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(4)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Triangle(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(3)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Hexagon(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(6)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="variable">shapes</span> = <span class="array">[<span class="method">Square(), Triangle(), Hexagon()</span>]</span>
+<span class="line-number"></span><span class="keyword">for</span> <span class="variable">shape</span> <span class="keyword">in</span> <span class="variable">shapes:</span>
+<span class="line-number"></span>   <span class="variable">shape</span>.<span class="method">num_sides()</span>
+                    </code>
+                </pre>
+                <p>Now what if we wanted to implement a <a class="italics">apeirogon</a>? If you do not know what a 
+                apeirogon is(which I don't expect you to know), it's essentially a shape with infinite sides. You can learn 
+                more about it <a href="https://en.wikipedia.org/wiki/Apeirogon">here</a>.</p>
+                <p>You can see where this would cause issues, specifically with the <code class="inline_code">is_polygon()</code>. 
+                While we could pass "infinite" as <code class="inline_code">num_sides</code>, it's going to crash at the <code class="inline_code">
+                    is_polygon()</code>.</p>
+                <img src="images/apeirgon.webp">
+                <p><a class="italics">An aperiogon</a></p>
+                <p>Thus, let's use a mix of inheritance and polymorphism to make a special case for this odd shape.</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Apeirogon(shapes):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init("infinite")</span>
+<span class="line-number"></span>   
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
+<span class="line-number"></span>       <span class="keyword">return</span> <span class="variable">False</span>
+                    </code>
+                </pre>
                 
 
             </section>
