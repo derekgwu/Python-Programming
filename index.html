@@ -724,11 +724,11 @@ Elapsed Time: 0.0 seconds</span>
                     <code>
 <span class="line-number"></span><span class="comment">#Some parent class called shape</span>
 <span class="line-number"></span><span class="keyword">class</span><span class="variable"> Shape():</span>
-<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self, num_sides</span>):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self, num_sides</span>):</span>
 <span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">num_sides</span> = <span class="variable">num_sides</span>
 <span class="line-number"></span>
 <span class="line-number"></span>   <span class="keyword">def</span> <span class="variable">print_info(<span class="args">this</span>):</span>
-<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have" + <span class="variable">this.num_sides</span> + " sides")</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have" + <span class="variable">str(this.num_sides)</span> + " sides")</span>
 <span class="line-number"></span>   
 <span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
 <span class="line-number"></span>       <span class="keyword">if</span> <span class="keyword">this.<span class="variable">num_sides</span> > <span class="integer">3</span>:
@@ -742,16 +742,16 @@ Elapsed Time: 0.0 seconds</span>
                 <pre>
                     <code>
 <span class="line-number"></span><span class="keyword">class</span><span class="variable"> Square(Shape):</span>
-<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
-<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(4)</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(4)</span>
 <span class="line-number"></span>
 <span class="line-number"></span><span class="keyword">class</span><span class="variable"> Triangle(Shape):</span>
-<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
-<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(3)</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(3)</span>
 <span class="line-number"></span>
 <span class="line-number"></span><span class="keyword">class</span><span class="variable"> Hexagon(Shape):</span>
-<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
-<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init(6)</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(6)</span>
 <span class="line-number"></span>
 <span class="line-number"></span><span class="variable">shapes</span> = <span class="array">[<span class="method">Square(), Triangle(), Hexagon()</span>]</span>
 <span class="line-number"></span><span class="keyword">for</span> <span class="variable">shape</span> <span class="keyword">in</span> <span class="variable">shapes:</span>
@@ -770,11 +770,63 @@ Elapsed Time: 0.0 seconds</span>
                 <pre>
                     <code>
 <span class="line-number"></span><span class="keyword">class</span><span class="variable"> Apeirogon(shapes):</span>
-<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init(<span class="args">self</span>):</span>
-<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init("infinite")</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__("infinite")</span>
 <span class="line-number"></span>   
 <span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
 <span class="line-number"></span>       <span class="keyword">return</span> <span class="variable">False</span>
+                    </code>
+                </pre>
+                <p>Now let's print it all out now:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="comment">#Some parent class called shape</span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Shape():</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self, num_sides</span>):</span>
+<span class="line-number"></span>       <span class="keyword">self</span>.<span class="variable">num_sides</span> = <span class="variable">num_sides</span>
+<span class="line-number"></span>
+<span class="line-number"></span>   <span class="keyword">def</span> <span class="variable">print_info(<span class="args">this</span>):</span>
+<span class="line-number"></span>       <span class="keyword">print(<span class="string">"I have" + <span class="variable">str(this.num_sides)</span> + " sides")</span>
+<span class="line-number"></span>   
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
+<span class="line-number"></span>       <span class="keyword">if</span> <span class="keyword">this.<span class="variable">num_sides</span> >= <span class="integer">3</span>:
+<span class="line-number"></span>           <span class="keyword">return</span> <span class="variable">True</span>
+<span class="line-number"></span>       <span class="keyword">else:</span>
+<span class="line-number"></span>            <span class="keyword">return</span> <span class="variable">False</span>
+<span class="line-number"></span> 
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Square(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(4)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Triangle(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(3)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Hexagon(Shape):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__(6)</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="keyword">class</span><span class="variable"> Apeirogon(shapes):</span>
+<span class="line-number"></span>   <span class="keyword">def</span><span class="variable"> __init__(<span class="args">self</span>):</span>
+<span class="line-number"></span>       <span class="keyword">super()</span>.<span class="method">__init__("infinite")</span>
+<span class="line-number"></span>   
+<span class="line-number"></span>   <span class="keyword">def </span><span class="variable">is_polygon(this):</span>
+<span class="line-number"></span>       <span class="keyword">return</span> <span class="variable">False</span>
+<span class="line-number"></span>
+<span class="line-number"></span><span class="variable">shapes</span> = <span class="array">[<span class="method">Square(), Triangle(), Hexagon(), Apeirogon()</span>]</span>
+<span class="line-number"></span><span class="keyword">for</span> <span class="variable">shape</span> <span class="keyword">in</span> <span class="variable">shapes:</span>
+<span class="line-number"></span>   <span class="variable">shape</span>.<span class="method">num_sides()</span>
+                    </code>
+                </pre>
+                <p>
+                    This prints out:
+                </p>
+                <pre>
+                    <code>
+<span class="terminal">I have 4 sides</span>
+<span class="terminal">I have 3 sides</span>
+<span class="terminal">I have 6 sides</span>
+<span class="terminal">I have infinite sides</span>
                     </code>
                 </pre>
                 
@@ -1045,67 +1097,9 @@ IndexError: list index out of range
                 <h3 id="chapter4prac">Chapter 4 Exercises</h3>
                 <h3 id="chapter5prac">Chapter 5 Exercises</h3>
                 <h4>Practice 5.1 Remove Numbers</h4>
-                <p>Write the following program that when given an array of numbers and an integer, 
-                    you return a new array that does not contain that integer
-                    
-                </p>
-                <pre>
-                    <code>
-<span class="line-number"></span><span class="keyword">def </span><span class="method">remove_num(<span class="variable">arr, num</span>):</span>
-<span class="line-number"></span>   <span class="comment">#your code here!</span>
-<span class="line-number"></span>   <span class="keyword">return </span><span class="integer">0</span>
-<span class="line-number"></span>
-<span class="line-number"></span><span class="comment">#Unit Tests</span>
-
-<span class="line-number"></span>def asserter(test_case, exp, func, *args):
-<span class="line-number"></span>    try:
-<span class="line-number"></span>        ret = func(*args)
-<span class="line-number"></span>       if ret == exp:
-<span class="line-number"></span>           print("Test Case " + str(test_case) + " SUCCESS!")
-<span class="line-number"></span>       else:
-<span class="line-number"></span>          print("Test Case " + str(test_case) + " FAILED. We expected: " + str(exp) + " but you returned " + str(ret))
-<span class="line-number"></span>    except Exception as e:
-<span class="line-number"></span>        print("Test Case " + str(test_case) + f" had an exception: {type(e).__name__}: {e}")
-<span class="line-number"></span>
-<span class="line-number"></span>asserter(1, [1,2,3], remove_num, [0,1,2,3], 0)
-<span class="line-number"></span>asserter(2, [1,2], remove_num, [2], 1)
-<span class="line-number"></span>asserter(3, [1], remove_num, [], 1)
-<span class="line-number"></span>asserter(4, [1,2], remove_num, [1,2], 3)
-<span class="line-number"></span>asserter(5, [], remove_num, [0,0,0,0], 0)
-                    </code>
-                </pre>
+                <button class="directions_btn" onclick="redirectToPage('Directions/5-1removenum.html')">Click here</button>
                 <h4>Practice 5.2 Find Largest</h4>
-                <p>Write a method that finds the largest number in an array. If the array is empty,
-                    return "error".
-                </p>
-                <pre>
-                    <code>
-<span class="line-number"></span><span class="keyword">def </span><span class="method">find_largest(<span class="variable">arr</span>):</span>
-<span class="line-number"></span>   <span class="comment">#your code here!</span>
-<span class="line-number"></span>   <span class="keyword">return </span><span class="integer">0</span>
-<span class="line-number"></span>
-<span class="line-number"></span><span class="comment">#Unit Tests</span>
-
-<span class="line-number"></span>def asserter(test_case, exp, func, *args):
-<span class="line-number"></span>    try:
-<span class="line-number"></span>        ret = func(*args)
-<span class="line-number"></span>       if ret == exp:
-<span class="line-number"></span>           print("Test Case " + str(test_case) + " SUCCESS!")
-<span class="line-number"></span>       else:
-<span class="line-number"></span>          print("Test Case " + str(test_case) + " FAILED. We expected: " + str(exp) + " but you returned " + str(ret))
-<span class="line-number"></span>    except Exception as e:
-<span class="line-number"></span>        print("Test Case " + str(test_case) + f" had an exception: {type(e).__name__}: {e}")
-<span class="line-number"></span>
-<span class="line-number"></span>asserter(1, 3, find_largest, [0,1,2,3])
-<span class="line-number"></span>asserter(2, 2, find_largest, [2,1])
-<span class="line-number"></span>asserter(3, 1, find_largest, [1])
-<span class="line-number"></span>asserter(4, "error", find_largest, [])
-<span class="line-number"></span>asserter(5, 0, find_largest, [0,0,0,0])
-<span class="line-number"></span>asserter(6, 1, find_largest, [-299, -500, 1, -13])
-<span class="line-number"></span>asserter(7, 16, find_largest, [16,15,14,13])
-<span class="line-number"></span>asserter(8, 11, find_largest, [1,2,5,4,7,4,8,2,4,5,7,4,7,9,11,4])
-                    </code>
-                </pre>
+                <button class="directions_btn" onclick="redirectToPage('Directions/5-2findlargest.html')">Click here</button>
                 <h4>Practice 5.3 Swap Two Numbers</h4>
                 <button class="directions_btn" onclick="redirectToPage('Directions/5-3swap.html')">Click here</button>
                 <h3 id = "chapter9e">Chapter 9 Exercises</h3>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming</title>
+    <link rel="stylesheet" type="text/css" href="directions.css">
+</head>
+<body class="directions">
+        <a href="/tutoring-files/#exercise"> < Click here to return</a>
+        <h2>Chapter 8.1 Exercise: Rock Paper Scissors</h2>
+        <h4>Goals</h4>
+        <ul>
+            <li>Classes</li>
+            <li>User Input and Output</li>
+            <li>Translating Requirements to Code</li>
+        </ul>
+        <h4>Requirements</h4>
+        <p>Develop your own single player text-based rock paper scissors. While most rock paper scissors games 
+            are played by two people, your Python edition of this game will support one real person while the other  
+            person is simulated by a computer (using randomly generated values). 
+        </p>
+        <p>The game should follow this format: </p>
+        <ul>
+            <li>The game starts by prompting the human to enter their name. You should create a 
+                <code class="inline_code">Player()</code> class that can store a user's name, rounds won, 
+                and what move they play in a round. 
+            </li>
+            <li>After the user creates a name, they will enter the game and be prompted to enter 
+                rock, paper, scissor. If the user enters an invalid input, please re-prompt them to try again.
+            </li>
+            <li>
+                The CPU player should randomly generate a move. This can be done by importing the 
+                <code class="inline_code">random</code> library and use its methods. You can find it's methods 
+                <a href="https://www.w3schools.com/python/module_random.asp">here</a>.
+            </li>
+            <li>Once both sides have made a move, the program compares the move and properly awards a winner. 
+                The proper player's score is updated and the scoreboard is displayed after every round. 
+            </li>
+            <li>Rounds should continue to be played until the human decides to quit. Optionally, you can enable 
+                a play again option or just use the terminal <code class="inline_code">cntl+c</code> to forcefully 
+                quit a program.
+            </li>
+        </ul>
+
+        <h4>Hints</h4>
+        <ul>
+            <li>I suggest the <code class="inline_code">randrange(start, stop)</code> method to randomly 
+            generate numbers. Look at the module to understand the arguments.</li>
+            <li>To constantly keep playing rounds, I suggest an infinite while loop. This is simply done by 
+                <code class="inline_code">while True:</code>
+            </li>
+            <li>The exact wording is up to you and you can take creative liberties when designing this game.</li>
+        </ul>
+        <p>There is no source code for this project.</p>
+
+</body>
+</html>
