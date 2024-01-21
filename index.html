@@ -63,7 +63,16 @@
                         </ul>
                         
                     </li>
-                    <li><a href="#chapter11">Chapter 11: Introduction to Data Structures</a></li>
+                    <li><a href="#chapter11">Chapter 11: Introduction to Data Structures and APIs</a>
+                        <ul class="sub-toc">
+                            <li><a href="#section11-1">Section 11.1 You Saw Data Structures Already</a></li>
+                            <li><a href="#section11-2">Section 11.2 Other Data Structures</a></li>
+                            <li><a href="#section11-2-1">Section 11.2.1 Python Vs. Other Languages in Data Structures</a></li>
+                            <li><a href="#section11-3">Section 11.3 What is an API?</a></li>
+                            <li><a href="#section11-4">Section 11.4 Why You Should Make Your Own APIs/a></li>
+                        </ul>
+                    </li>
+                        
                     <li><a href="#chapter12">Chapter 12: Importing Files</a>
                         <ul class="sub-toc">
                             <li><a href="#section12-1">Section 12.1 Introduction</a></li>
@@ -73,7 +82,6 @@
                         </ul>
                     </li>
                     <li><a href="#chapter12">Chapter 13: Exception Handling</a></li>
-                    <li><a href="#chapter12">Chapter 13: Python GUIs with Tkinter</a></li>
                     <li><a href="#practice">Practice Questions</a></li>
                     <li><a href="#exercise">Excercises</a></li>
                     
@@ -832,6 +840,113 @@ Elapsed Time: 0.0 seconds</span>
                 
 
             </section>
+            <section id="chapter11">
+                <h2>Chapter 11: Introduction to Data Structures</h2>
+                <h4 id="section11-1">Section 11.1 What is a Data Structure?</h4>
+                <p>It's simple! It's a structure to hold data!</p>
+                <p>Ok, maybe that's a little vague and unclear. In other words,
+                    you can think of it as a container to hold information, but Python takes 
+                    the liberties of organizing it in certain ways so it can efficiently retrieve 
+                    information.
+                </p>
+                <p>But you might say, it's already pretty easy retrieving data, numbers, strings from 
+                    our arrays? And you are right! This is because the arrays we worked with in Chapter 5 
+                    are data structures themselves. Many things in Python are data structures already, and Python 
+                    is known as a dynamic programming language. It may be useful to explore why dynamic data structures 
+                    are useful in other programming language.
+                </p>
+                <h4 id="section11-1-1">Section 11.1.1 Dynamic vs Static Programming Languages</h4>
+                <p>Python is known as a dynamic programming language, which means you do not need to compile your 
+                    code before running it. The language actively adapts throughout the runtime of the program. It 
+                    allows us to do things like change variable types throughout the program:
+                </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">var1</span> = <span class="integer">8</span>
+<span class="line-number"></span><span class="variable">var1</span> = <span class="string">"hello"</span>
+                    </code>
+                </pre>
+                <p>In a language like C, this is not allowed. If there is a compiler, it needs to know the 
+                    variable type before runtime, but because Python has no compiler, you can ignore it.
+                </p>
+                <p>Another example is array size. In C, you need define how large of an array you need before 
+                    using it. If you need an array of size 6, you declare an array of size 6. If suddenly you need 
+                    a 7th spot, you'll need to make a new array of size 7 and copy over any elements.
+                </p>
+                <p>In Python, we know that we do not need to specify a size of an array before using it. We can 
+                    repeatedly use <code class="inline_code">.append()</code> to keep adding elements in our array.
+                    The developer does not need to resize arrays themselves, as Python will do it for you.
+                </p>
+                <p>Most programming languages have data structures and this concept of dynamic resizing. It's quite 
+                    useful when you do not know how large of an array you need.
+                </p>
+                <h4 id="section11-2">Section 11.2 Lists</h4>
+                <p>Let's start with the data structure we have already seen before. The List data structure, 
+                    or array, is a simple one. Unlike C, the values in a List can be different variable types.
+                </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">list</span> = <span class="method">[<span class="string">"hello"</span>, <span class="integer">8</span>, <span class="keyword">True</span>]</span>
+                    </code>
+                </pre>
+                <p>Listed below are some important methods that can be used on a list.</p>
+                <ul>
+                    <li><code class="inline_code">.append(value)</code>: Adds a value or another list to the end of the list</li>
+                    <li><code class="inline_code">.insert(index, value)</code>: Adds a value to a certain position</li>
+                    <li><code class="inline_code">.remove(value)</code>: Removes the specified value from the list. It throws an exception if value cannot be found</li>
+                    <li><code class="inline_code">.clear()</code>: Empties the entire list</li>
+                    <li><code class="inline_code">.sort()</code>: Sorts the list. Additional arguments may be added to specify how to sort.</li>
+                </ul>
+                <p>To retrieve a value at a certain index, you can use:</p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="keyword">print(<span class="variable">list[<span class="integer">0</span>]</span>)</span>
+                    </code>
+                </pre>
+                <p>Which outputs:</p>
+                <pre>
+                    <code>
+<span class="terminal">hello</span>
+                    </code>
+                </pre>
+                <h4 id="section11-3">Section 11.3 Tuples</h4>
+                <p>Tuples are similar to Lists, except that Tuples are <a class="italics">immutable</a>. In 
+                other words, once created, you cannot add or remove values from it. This is useful when making
+                a program that users will interacting with, and you do not want users altering data.</p>
+                <p>Tuples are denoted by the regular parenthesis, instead of a List's brackets:</p>
+                
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">tuple</span> = <span class="method">(<span class="string">"hello"</span>, <span class="integer">8</span>, <span class="keyword">True</span>)</span>
+                    </code>
+                </pre>
+                <p>Unlike the list, there are not many methods you can use on tuples, as they would 
+                    alter the data. You can still search for values in the tuple like you would in a list 
+                    however.
+                </p>
+                <h4 id="section11-4">Section 11.4 Dictionary</h4>
+                <p>This creates a structure similar to an array, but each element has key and value. You 
+                    can think of it like a real-life dictionary, where each word (key) has a corresponding
+                    definition (value). Dictionaries are defined by having key-value pair entries and curly brackets
+                </p>
+                <p>The key and values can be any variable type. They can both be integers, or one could be a 
+                    string and another could be a character. The separation between the two is denoted by a 
+                    colon.
+                </p>
+                <pre>
+                    <code>
+<span class="line-number"></span><span class="variable">dict</span> = <span class="method">[<span class="string">"apple"</span> : <span class="string">"a red fruit"</span>, <span class="integer">1</span> : <span class="varaible">orange</span>]</span>
+                    </code>
+                </pre>
+                <p>A dictionary has a different list of methods compared to the List. Some examples are:
+                </p>
+                <ul>
+                    <li><code class="inline_code">get(key)</code>: Given a key as an argument, it returns the associated value with the key</li>
+                    <li><code class="inline_code">pop(key)</code>: Given a key, it removes the key value pair</li>
+                    <li><code class="inline_code">update(key)</code>: Updates the value in the key-value pair</li>
+                </ul>
+            </section>
+            
             
             
             <section id="chapter12">
@@ -1108,33 +1223,14 @@ IndexError: list index out of range
                 <h3 id = "chapter9e">Chapter 9 Exercises</h3>
                 <h4>Practice 9.1 - Racing Cars</h4>
                 <button class="directions_btn" onclick="redirectToPage('Directions/9-1racingcars.html')">Click here</button>
+                <h3 id="chapter11e">Chapter 11 Exercises</h3>
+                <h4>Practice 11.1 - Simon Color Memory Game</h4>
+                <button class="directions_btn" onclick="redirectToPage">Click Here</button>
                 
 
-                <h3 id="chapter11e">Chapter 11 Exercises</h3>
-                <h4>Practice 11.1 - Developing a Messaging System using Encryption and Decryption</h4>
-                <p>Using your encrpytion and decryption methods from chapter 6 exercises, write a method 
-                    that simulates a messaging platform. It should:
-                </p>
-                <ul>
-                    <li>Print the input</li>
-                    <li>Encrypt and print the input in encrypted form</li>
-                    <li>Decrypt and print the input in decrypted form</li>
-                </ul>
-                <pre>
-                    <code>
-<span class="line-number"></span><span class="comment">#Hint: you many need to import something!</span>
-<span class="line-number"></span><span class="keyword">def </span><span class="variable">msg_service(<span class="variable">msg</span>):</span>
-<span class="line-number"></span>   <span class="comment">#print the msg here</span>
-<span class="line-number"></span>   <span class="comment">#encrypt the msg</span>
-<span class="line-number"></span>   <span class="variable">encrypted_msg</span> = <span class="string">""</span>
-<span class="line-number"></span>   <span class="keyword">assert </span><span class="variable">encrypted_msg </span>== <span class="string">"hoork"</span>
-<span class="line-number"></span>   <span class="comment">#decrypt the msg</span>
-<span class="line-number"></span>   <span class="variable">decrypted_msg</span> = <span class="string">""</span>
-<span class="line-number"></span>   <span class="keyword">assert </span><span class="variable">decrypted_msg </span>== <span class="string">"hello"</span>
-<span class="line-number"></span>
-<span class="line-number"></span><span class="variable">msg_service(<span class="string">"hello"</span>)</span>
-                    </code>
-                </pre>
+                <h3 id="chapter11e">Chapter 12 Exercises</h3>
+                <h4>Practice 12.1 - Developing a Messaging System using Encryption and Decryption</h4>
+                <button class="directions_btn" onclick="redirectToPage('Directions/11-1messagingsystem.html')">Click here</button>
             </section>
         </div>
     </div>
