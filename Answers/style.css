@@ -1,0 +1,27 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons{
+    display: none;
+    flex-direction: column;
+}
+
+.password_entry{
+    display:inline-block;
+}
+
+.answers_btn{
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;
+    width: 10%;
+    height: auto;
+}
+
+.answers_btn:hover{
+    background-color: white;
+    color: black;
+}

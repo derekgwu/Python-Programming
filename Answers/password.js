@@ -1,14 +1,19 @@
-function validatePassword() {
-    var enteredPassword = document.getElementById('password').value;
+function checkPassword() {
+  var passwordInput = document.getElementById("password").value;
+  var messageElement = document.getElementById("message");
 
-    // Example: Check if the password meets certain criteria (e.g., minimum length)
-    if (enteredPassword.length >= 8) {
-      alert('Password is valid!');
-    } else {
-      alert('Password must be at least 8 characters long.');
-    }
+  // Example: Check if the password meets certain criteria
+  if (passwordInput.localeCompare("dchen36")) {
+      messageElement.textContent = "Incorrect Password. Please Try Again";
+  } else {
+    var button_div = document.getElementById("button_div");
+    button_div.style.display = "flex";
+    button_div = document.getElementById("entry");
+    button_div.style.display = "none";
+  }
 }
 
-function unmask(str){
-
+function redirectToPage(url) {
+  // Use window.location.href to redirect to the specified URL
+  window.location.href = url;
 }

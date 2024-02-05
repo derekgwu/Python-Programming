@@ -1,0 +1,34 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming</title>
+    <link rel="stylesheet" type="text/css" href="my.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+
+<pre>
+<code class="inline_code">
+#HANGMAN
+#do pip install random-word
+from random_word import RandomWords
+
+#gets a random word, returns in the form of _ _ _ _ ...
+def generate_word():
+    r = RandomWords()
+    word = r.get_random_word()
+    ret = ""
+    for i in word:
+        ret += " " + i
+    return ret
+
+def generate_blanks(word):
+    ret = ""
+    for i in word:
+        if i == 0:
+            ret += "_"
+        elif i != " ":
+            ret += " _"
+    return ret
+</code>
+</pre>
