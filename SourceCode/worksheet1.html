@@ -41,7 +41,18 @@
                    print("Test Case " + str(test_case) + " FAILED. We expected: " + str(exp) + " but you returned " + str(ret))
             except Exception as e:
                 print("Test Case " + str(test_case) + f" had an exception: {type(e).__name__}: {e}")
-        
+
+        def anagram(str1, str2):
+            for char in str1:
+                #flag variable
+                for char2 in str2:
+                #if char == char2:
+                    #set flag variable to true
+                #check flag variable
+                #flag variable is true = go back to top of loop
+                #flag is false = return false
+            #return True
+            return 0
         
         def run_tests():
             asserter(1.1, "222", adding_str, "111", "111")
@@ -54,6 +65,11 @@
             asserter(3.1, True, balanced, [1,2,3], [2,3])
             asserter(3.2, True, balanced, [0], [0])
             asserter(3.3, False, balanced, [1,2,3,4], [1,2,3,4])
+            asserter(4.1, True, anagram, "angel", "glean")
+            asserter(4.2, True, anagram, "cool", "loco")
+            asserter(4.3, False, anagram, "anagram", "just no")
+
+        run_tests()
         
 </code>
 </pre>
