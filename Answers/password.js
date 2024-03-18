@@ -3,7 +3,7 @@ function checkPassword() {
   var messageElement = document.getElementById("message");
 
   // Example: Check if the password meets certain criteria
-  if (passwordInput.localeCompare("dchen36") || passwordInput.localeCompare("srallred")) {
+  if (passwordInput.localeCompare("dchen36")) {
       messageElement.textContent = "Incorrect Password. Please Try Again";
   } else {
     var button_div = document.getElementById("button_div");
