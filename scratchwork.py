@@ -1,72 +1,45 @@
 import random
 
-#in the arr, all elements appear twice except for 1, return the element that appears once
-def appear_twice(arr):
-    for i in range(0, len(arr), 2):
-        if arr[i] != arr[i+1]:
-            return arr[i]
-    return -1
+def debuggy():
+    #this code is trying to swap two values in variables
+    val_1 = "im in value 1"
+    val_2 = "im in value 2"
 
-print(appear_twice([0,0,1,2,2]))
+    #put value val1 in val2
+    val_2 = val_1
 
-#adds the numeric value of two strings together
-"123", "20" "143"
+    #do the same again...
+    val_1 = val_2
 
-def adding_str(str1, str2):
-    str1_as_int = int(str1)
-    str2_as_int = int(str2)
-    str3 = str1_as_int + str2_as_int
-    result = str(str3)
-    return result
-
-#determines whether a string is a palindrome or not
-
-#for i in range(0, len(str), 1)
-def palindrome(str):
-    var = str
-    reverse_str = ""
-
-    for i in range(len(str) - 1, -1, -1):
-        reverse_str += str[i]
-
-    if reverse_str == str:
-        return True
-    else:
-        return False
-    
-
-#determine whether the sum of all the numbers in arr1 equal the product of all the numbers in arr2
-
-def balanced(arr1, arr2):
-    #add everything in arr1
-    product1 = 1
-    for num in arr1:
-        product1 = num * product1
+    print(val_1)
+    print(val_2)
 
 
-    #add everything in arr2
-    product2 = 1
-    for num in arr2:
-        product2 = num * product2
+#given a string of binary, flip each 0 to a 1 and flip each 1 to a 0
+def binary_flip(num):
+    return 0
 
-    #compare the two
-    if product1 == product2:
-        return True
-    else:
-        return False
-    
-def anagram(str1, str2):
-    for char in str1:
-        #flag variable
-        for char2 in str2:
-            #if char == char2:
-                #set flag variable to true
-        #check flag variable
-            #flag variable is true = go back to top of loop
-            #flag is false = return false
-    #return True
+
+#given a string of binary, determine if there are more 0's than 1's
+def binary_count(num):
+    return 0
+
+#HARD 
+#given two strings of binary, add the two binary strings together and return the sum
+def add_binary(num1, num2):
+    return 0
+
+#homework
+#given a string of binary, reorganize the string such that all the 0's are on the left and all the 1 on the right
+#example: given "011011", return "001111"
+def binary_rearrange(num):
     return 0
  
+#homework
+#given a string of binary, check that there are no adjacent 0's or 1's, return True or False
+def binary_adjancent(num):
+    return 0
+
 def asserter(test_case, exp, func, *args):
     try:
         ret = func(*args)
@@ -79,18 +52,19 @@ def asserter(test_case, exp, func, *args):
 
 
 def run_tests():
-    asserter(1.1, "222", adding_str, "111", "111")
-    asserter(1.2, "1345", adding_str, "1000", "345")
-    asserter(1.3, "123", adding_str, "0", "123")
-    asserter(2.1, True, palindrome, "racecar")
-    asserter(2.2, True, palindrome, "i did did i")
-    asserter(2.3, False, palindrome, "notpalindrome")
-    asserter(2.4, False, palindrome, "rotatior")
-    asserter(3.1, True, balanced, [1,2,3], [2,3])
-    asserter(3.2, False, balanced, [1,2,4], [2,2])
-    asserter(3.3, True, balanced, [1,2,3,4], [1,2,3,4])
-    asserter(4.1, True, anagram, "angel", "glean")
-    asserter(4.2, True, anagram, "cool", "loco")
-    asserter(4.3, False, anagram, "anagram", "just no")
+    binary_flip(1.1, "0110", binary_flip, "1001")
+    binary_flip(1.2, "1111", binary_flip, "0000")
+    binary_flip(1.3, "01010101", binary_flip, "10101010")
+    binary_count(2.1, False, binary_count, "1101")
+    binary_count(2.2, True, binary_count, "0001110")
+    add_binary(3.1, "111", add_binary, "000", "111")
+    add_binary(3.2, "1111", add_binary, "1010", "0101")
+    asserter(3.3, "1000", add_binary, "001", "111")
+    binary_rearrange(4.1, "001111", binary_rearrange, "110011")
+    binary_rearrange(4.2, "000111", binary_rearrange, "111000")
+    binary_adjancent(5.1, True, binary_adjancent, "01010")
+    binary_adjancent(5.2, False, binary_adjancent, "101001")
+    binary_adjancent(5.3, True, binary_adjancent, "0")
+    
 
 run_tests()
