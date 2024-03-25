@@ -1,44 +1,51 @@
-import random
+#return true if all the elements in arr1 are in arr2, and false otherwise
+def subset(arr1, arr2):
+    for i in arr1:
+        found = False
+        for j in arr2:
+            if i == j:
+                found = True
+        if found == False:
+            return False
+    return True
 
-def debuggy():
-    #this code is trying to swap two values in variables
-    val_1 = "im in value 1"
-    val_2 = "im in value 2"
+#given two arrays, return all elements that appear in either arr1 or arr2 with no duplicates
+def union(arr1, arr2):
+    ret = []
+    for i in arr1: 
+        ret.append(i)
+    
+    for i in arr2:
+        if i not in ret:
+            ret.append(i)
+    return ret
 
-    #put value val1 in val2
-    val_2 = val_1
-
-    #do the same again...
-    val_1 = val_2
-
-    print(val_1)
-    print(val_2)
-
-
-#given a string of binary, flip each 0 to a 1 and flip each 1 to a 0
-def binary_flip(num):
-    return 0
+#given two arrays, return all elements that appear both in arr1 and arr2
+def intersect(arr1, arr2):
+    ret = []
+    for i in arr1:
+        for j in arr2:
+            if i == j:
+                ret.append(i)
+                break
+    return ret
 
 
-#given a string of binary, determine if there are more 0's than 1's
-def binary_count(num):
-    return 0
+#given two arrays, return all elements that appear in set1 but not in set2
+def set_diff(arr1, arr2):
+    ret = []
+    for i in arr1:
+        found = False
+        for j in arr2:
+            if i == j:
+                found = True
+        if found == False:
+            ret.append(i)
+    return ret
 
-#HARD 
-#given two strings of binary, add the two binary strings together and return the sum
-def add_binary(num1, num2):
-    return 0
 
-#homework
-#given a string of binary, reorganize the string such that all the 0's are on the left and all the 1 on the right
-#example: given "011011", return "001111"
-def binary_rearrange(num):
-    return 0
- 
-#homework
-#given a string of binary, check that there are no adjacent 0's or 1's, return True or False
-def binary_adjancent(num):
-    return 0
+
+
 
 def asserter(test_case, exp, func, *args):
     try:
@@ -52,19 +59,17 @@ def asserter(test_case, exp, func, *args):
 
 
 def run_tests():
-    binary_flip(1.1, "0110", binary_flip, "1001")
-    binary_flip(1.2, "1111", binary_flip, "0000")
-    binary_flip(1.3, "01010101", binary_flip, "10101010")
-    binary_count(2.1, False, binary_count, "1101")
-    binary_count(2.2, True, binary_count, "0001110")
-    add_binary(3.1, "111", add_binary, "000", "111")
-    add_binary(3.2, "1111", add_binary, "1010", "0101")
-    asserter(3.3, "1000", add_binary, "001", "111")
-    binary_rearrange(4.1, "001111", binary_rearrange, "110011")
-    binary_rearrange(4.2, "000111", binary_rearrange, "111000")
-    binary_adjancent(5.1, True, binary_adjancent, "01010")
-    binary_adjancent(5.2, False, binary_adjancent, "101001")
-    binary_adjancent(5.3, True, binary_adjancent, "0")
-    
+    asserter(1.1, True, subset, [1,2,3], [1,2,3,4,5,6])
+    asserter(1.2, True, subset, [3,5,4], [5,2,3,7,4])
+    asserter(1.3, False, subset, [1,5,6], [2,3,1,5])
+    asserter(2.1, [1,2,3,4,5,6], union, [1,2,3],[4,5,6])
+    asserter(2.2, [1,3,5], union, [1,3], [3,5])
+    asserter(2.3, [1,2,3], union, [], [1,2,3])
+    asserter(3.1, [1,2,3], intersect, [1,2,3,4,5,6], [-1,-2,-3,0,1,2,3])
+    asserter(3.2, [], intersect, [], [1,2,3])
+    asserter(4.1, [1], set_diff, [1,2,3], [2,3])
+    asserter(4.2, [], set_diff, [1,2,3], [1,2,3])
 
 run_tests()
+
+    
