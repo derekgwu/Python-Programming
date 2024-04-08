@@ -1,35 +1,28 @@
 def median(arr):
-    sorted_arr = sorted(arr)
-    n = len(sorted_arr)
-    if n % 2 == 0:
-        middle_right = n / 2
-        middle_left = middle_right - 1
-        return (sorted_arr[middle_left] + sorted_arr[middle_right]) / 2
-    else:
-        middle_index = n / 2
-        return sorted_arr[middle_index]
+    if len(arr) % 2 == 0:
+        num1 = len(arr) // 2
+        num2 = len(arr) // 2 - 1
+        sum = arr[num1] + arr[num2]
+        return sum//2
+    return 0
 
 def longest_word(str):
-    max = 0
-    current_max = 0
-    for i in range(0, len(str) - 1, 1):
-        if str[i] == " " and current_max > max:
-            max = current_max
-            current_max = 0
-        elif str[i] == " ":
-            current_max = 0
-        else:
-            current_max += 1
+    words = str.split(" ")
+    max = ""
+    for word in words:
+        if len(word) > len(max):
+            max = word
     return max
 
 
+
 def find_second(arr, num):
-    found_first = False
-    for i in range(0, len(arr) - 1, 1):
-        if arr[i]== num and found_first == True:
+    numbers = []
+    for i in range(0, len(arr)):
+        if arr[i] in numbers and arr[i] == num:
             return i
-        elif arr[i] == num:
-            found_first = True
+        else:
+            numbers.append(arr[i])
     return -1
 
 def check_sorted(arr):
@@ -37,6 +30,28 @@ def check_sorted(arr):
         if arr[i] < arr[i - 1]:
             return False
     return True
+
+def unmerge_words(str):
+    word1 = ""
+    word2 = "" 
+    for i in range(0, len(str)):
+        if i % 2 == 0:
+            word1 += str[i]
+        if i % 2 == 1:
+            word2 += str[i]
+    return [word1, word2]
+
+def reverse(list):
+    left = 0
+    right = len(list) - 1
+    while(left < right):
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list  
+
 
 
 def sort(arr):
@@ -74,9 +89,9 @@ def run_tests():
     asserter(2.1, "longest", longest_word, "this is the longest word")
     asserter(2.2, "greenhouse", longest_word, "longest word is at the end now greenhouse")
     asserter(2.3, "double", longest_word, "this has double space now ")
-    asserter(3.3, 2, find_second, [1,2,1])
-    asserter(3.4, -1, find_second, [1,2,3])
-    asserter(3.5, 4, find_second, [3,1,1,5,3])
+    asserter(3.3, 2, find_second, [1,2,1], 1)
+    asserter(3.4, -1, find_second, [1,2,3], 2)
+    asserter(3.5, 4, find_second, [3,1,1,5,3], 3)
     asserter(4.1, True, check_sorted, [1,2,3,4,5])
     asserter(4.2, False, check_sorted, [1,2,3,4,6,5])
     asserter(5.1, [1,2,3,4,5], sort, [5,3,4,2,1])

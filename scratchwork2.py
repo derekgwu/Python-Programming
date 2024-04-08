@@ -15,6 +15,14 @@ def check_sorted(arr):
 def sort(arr):
     return 0
 
+def unmerge_words(str):
+    return 0
+
+def reverse_list(list):
+    return 0
+
+
+
 def asserter(test_case, exp, func, *args):
     try:
         ret = func(*args)
@@ -39,6 +47,8 @@ def run_tests():
     asserter(4.1, True, check_sorted, [1,2,3,4,5])
     asserter(4.2, False, check_sorted, [1,2,3,4,6,5])
     asserter(5.1, [1,2,3,4,5], sort, [5,3,4,2,1])
+    asserter(6.1, ["hello", "world"], unmerge_words, "hweolrllod")
+    asserter(7.1, [1,2,3,4,5], reverse_list, [5,4,3,2,1])
     
 run_tests()
 
