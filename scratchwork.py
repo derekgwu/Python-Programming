@@ -9,8 +9,18 @@ def two_sum(arr, target):
     return 0
 
 #givne an arr, shift every element to the right by one, and shift the last element to the beginning
-def shift():
-    return 0
+def shift(arr):
+    
+    
+    last_element = arr[len(arr) - 1]
+    
+    # Shift elements to the right
+    for i in range(len(arr) - 1, 0, -1):
+        arr[i] = arr[i - 1]
+    
+    arr[0] = last_element 
+    
+    return arr
 
 #given an arr, return true if there is a duplicate element, else return flase
 def contains_dup(arr):
