@@ -1,0 +1,63 @@
+waiting_room = [7,5,2,3,6]
+queue = []
+
+7 is the largest
+7 goes in the queue
+7 is removed from waiting room
+
+waiting_room = [5,2,3,6]
+queue = [7]
+
+6 is the largest 
+6 goes in the queue
+6 removed from waiting room
+
+waiting_room = [5,2,3,6]
+queue = [7]
+
+6 is the largest 
+6 goes in the queue
+6 removed from waiting room
+
+waiting_room = [5,2,3,6]
+queue = [7]
+
+6 is the largest 
+6 goes in the queue
+6 removed from waiting room
+
+waiting_room = [5,2,3,6]
+queue = [7]
+
+6 is the largest 
+6 goes in the queue
+6 removed from waiting room
+
+
+_ _ _ 
+
+1,2,3
+
+111
+112
+113
+121
+122
+123
+131
+132
+133
+
+211
+212
+213
+221
+...
+
+311
+312
+313
+321
+...
+for j in range(1,4)
+    

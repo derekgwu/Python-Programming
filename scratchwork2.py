@@ -20,6 +20,10 @@ def similar(arr1, arr2):
 def one_aftr_one(arr):
     0
 
+#return true if a letter appears twice in a word, and false other wise
+def appears_twice(word):
+    0
+
 
 
 
@@ -43,7 +47,8 @@ def run_tests():
     asserter(3.2, 5, similar, [3,5,4,2,1,3,5], [1,3,46,3,4,63,1,5])
     asserter(4.1, 3, one_aftr_one, [1,2,3,4,7,8,9])
     asserter(4.2, 1, one_aftr_one, [0,1,3,4,5,6])
-    
+    asserter(5.1, True, appears_twice, "passed")
+    asserter(5.2, False, appears_twice, "the quick brown")
 run_tests()
 
     
