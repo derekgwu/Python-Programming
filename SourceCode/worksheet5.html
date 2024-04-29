@@ -36,6 +36,9 @@ def one_aftr_one(arr):
 def appears_twice(word):
     0
 
+def is_prefix(prefix, word):
+    0
+
 
 
 
@@ -61,6 +64,8 @@ def run_tests():
     asserter(4.2, 1, one_aftr_one, [0,1,3,4,5,6])
     asserter(5.1, True, appears_twice, "passed")
     asserter(5.2, False, appears_twice, "the quick brown")
+    asserter(6.1, True, is_prefix, "prepare", "pre")
+    asserter(6.2, False, is_prefix, "asserter", "aster")
 run_tests()
     
         
