@@ -24,6 +24,11 @@ def one_aftr_one(arr):
 def appears_twice(word):
     0
 
+def is_prefix(prefix, word):
+    0
+
+
+
 
 
 
