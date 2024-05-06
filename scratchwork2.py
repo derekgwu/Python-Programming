@@ -1,30 +1,22 @@
-#given an array, the arr represents a waiting room of patients with a number representing 
-#how many minutes they have been waiting. Ideally, we want to help people who have been waiting the longest
-#return a new array that contains all the patients in the order they should be helped in
-
-#i.e given [7,5,2,1,6], ret. [7,6,5,2,1]
-
-def longest_line(arr):
+#calculate the n-th number in the fibonacci sequence
+def fibonacci(n):
     0
 
-#given a 3-digit lock that only takes the inputs of 1,2,3, return the correct password
-def crack_the_code(arr, answer):
+#calculate the result of a base raised to some power
+def power(base, power):
     0
 
-#given two arrs, find the common element between both of them
-def similar(arr1, arr2):
+#let arr be an array of 0s and 1s symbolizing dominos. Let 0 symbolize no domino and 1 symbolize
+# a domino. Calculate the start index where we can knock over the most number dominos in one go
+def dominos(arr):
     0
 
-#given an arr, find the element that is not continous with the others
-#i.e given [1,2,3,4,7,8], return index 3 as arr[3] = 7, and 7 does not come immediately after 4
-def one_aftr_one(arr):
+#given an arr, reverse it and return the new array
+def reverse(arr):
     0
 
-#return true if a letter appears twice in a word, and false other wise
-def appears_twice(word):
-    0
-
-def is_prefix(prefix, word):
+#given an arr, alter the values such that it is all values in odd indices followed by values in even indices
+def odd_to_even_2(arr):
     0
 
 
@@ -44,16 +36,17 @@ def asserter(test_case, exp, func, *args):
 
 
 def run_tests():
-    asserter(1.1, [7,6,5,2,1], longest_line, [7,5,2,1,6])
-    asserter(1.2, [4,3,3,2], longest_line, [2,4,3,3])
-    asserter(2.1, [1,3,2], crack_the_code, [1,2,3], [1,3,2])
-    asserter(2.2, [2,1,3], crack_the_code, [1,2,3], [2,1,3])
-    asserter(3.1, 3, similar, [1,2,3], [3,4,5])
-    asserter(3.2, 5, similar, [3,5,4,2,1,3,5], [1,3,46,3,4,63,1,5])
-    asserter(4.1, 3, one_aftr_one, [1,2,3,4,7,8,9])
-    asserter(4.2, 1, one_aftr_one, [0,1,3,4,5,6])
-    asserter(5.1, True, appears_twice, "passed")
-    asserter(5.2, False, appears_twice, "the quick brown")
+    asserter(1.1, 3, fibonacci, 5)
+    asserter(1.2, 34, fibonacci, 34)
+    asserter(1.3, 0, fibonacci, 1)
+    asserter(2.1, 16, power, 2, 4)
+    asserter(2.2, 27, power, 3,3)
+    asserter(2.3, 1, power, 2, 0)
+    asserter(3.1, 2, dominos, [0,0,1,1,1])
+    asserter(3.2, 1, dominos, [0,1,0,0])
+    asserter(3.3, 1, dominos, [0,1,1,1,0,0,1,1])
+    asserter(4.1, [1,2,3,4,5], reverse, [5,4,3,2,1])
+    asserter(5.1, [1,3,5,7,0,2,4,6], odd_to_even_2, [0,1,2,3,4,5,6,7])
 run_tests()
 
     
