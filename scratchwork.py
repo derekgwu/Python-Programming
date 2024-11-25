@@ -1,21 +1,26 @@
-"hint look up the .split method in python@"
+from flask import Flask, render_template, request, redirect, url_for
 
-def compute_str(str):
-    return 0
+app = Flask(__name__)
 
+# Sample list to store to-do items in memory
+todos = []
 
-def asserter(test_case, exp, func, *args):
-            try:
-                ret = func(*args)
-                if ret == exp:
-                    print("Test Case " + str(test_case) + " SUCCESS!")
-                else:
-                   print("Test Case " + str(test_case) + " FAILED. We expected: " + str(exp) + " but you returned " + str(ret))
-            except Exception as e:
-                print("Test Case " + str(test_case) + f" had an exception: {type(e).__name__}: {e}")
+@app.route('/')
+def index():
+    return render_template('index.html', todos=todos)
 
-asserter(1, 4, compute_str, "3 + 2 - 1")
-asserter(2, 6, compute_str, "3 * 2")
-asserter(3, 9, compute_str, "81 / 9")
-asserter(4, 10, compute_str, "3 + 1 + 4 + 2")
-asserter(5, 1, compute_str, "4 - 2 - 1")
+@app.route('/add', methods=['POST'])
+def add_todo():
+    todo = request.form.get('todo')
+    if todo:
+        todos.append(todo)
+    return redirect(url_for('index'))
+
+@app.route('/delete/<int:todo_id>', methods=['POST'])
+def delete_todo(todo_id):
+    if 0 <= todo_id < len(todos):
+        todos.pop(todo_id)
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
