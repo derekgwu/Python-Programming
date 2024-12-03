@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-left: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
     <h1>To-Do List</h1>
     
-    <!-- Form to add new to-do -->
+    <!-- Form to add a new to-do item -->
     <form action="{{ url_for('add_todo') }}" method="POST">
         <input type="text" name="todo" placeholder="Enter a new task" required>
         <button type="submit">Add</button>
@@ -19,7 +43,9 @@
         {% for todo in todos %}
             <li>
                 {{ todo }}
-               
+                <form action="{{ url_for('delete_todo', todo_id=loop.index0) }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
         {% endfor %}
     </ul>

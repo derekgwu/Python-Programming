@@ -26,17 +26,18 @@ def finddup(numbers):
         for j in range(i + 1, len(numbers)):
             if numbers[i] == numbers[j]:
                 first_duplicate = numbers[i]
-                break
+                return first_duplicate
             
-    return first_duplicate
+    return -1
 
 def sort(numbers):
  
     sorted_numbers = []
 
     while numbers:
-        smallest = max(numbers)  
+        smallest = min(numbers)  
         sorted_numbers.append(smallest)
+        numbers.remove(smallest)
         
 
     return sorted_numbers
